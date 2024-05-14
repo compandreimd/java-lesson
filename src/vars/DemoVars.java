@@ -3,7 +3,7 @@ package vars;
 public class DemoVars {
     /**
      * boolean = true|false (1 bit)
-     * byte = 2^8 (-128 ... 12) = 8 * bits
+     * byte = 2^8 (-128 ... 127) = 8 * bits
      * n
      */
     public String demo() {
