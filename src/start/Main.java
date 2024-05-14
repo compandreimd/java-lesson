@@ -18,7 +18,7 @@ public class Main {
             System.out.println("Choose Class (Andrei, DemoStart, Main, DemoVars, Operation, HW1):?");
             s = scan.nextLine();
         }
-        scan.close();
+      //  scan.close();
 
         switch (s){
             case "Andrei":
@@ -36,5 +36,6 @@ public class Main {
                 default:
                     HW1.Media();
         }
+        scan.close();
     }
 }

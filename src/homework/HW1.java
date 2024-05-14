@@ -1,9 +1,7 @@
 package homework;
-import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class HW1 {
-    private static final DecimalFormat df = new DecimalFormat("0,00");
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_YELLOW = "\u001B[33m";
     public static void Media() {
@@ -21,9 +19,9 @@ public class HW1 {
         l3 = scanner.nextDouble();
         double sum = (l1 + l2 + l3);
         System.out.println("Suma:" + sum);
-        System.out.println("Media:" + df.format(sum/3));
-        System.out.println(ANSI_YELLOW+"Suma depasit de "+ df.format(MAX)+ ": "+ (sum > MAX));
-        System.out.println("Media depasita de "+ df.format(MAX)+ ": "+ (sum/3 > MAX));
-
+        System.out.println("Media:" + (sum/3));
+        System.out.println(ANSI_YELLOW+"Suma depasit de "+ (MAX)+ ": "+ (sum > MAX));
+        System.out.println("Media depasita de "+ (MAX)+ ": "+ (sum/3 > MAX));
+        System.out.print(ANSI_RESET);
     }
 }
