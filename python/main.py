@@ -1,2 +1,0 @@
-print "Prima Lectie!"
-print"
