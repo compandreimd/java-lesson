@@ -1,37 +1,28 @@
-const readline = require('readline');
-const scan = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+const scan = require('readline-sync');
+const args = process.argv;
 
-scan.question('Choose Class (Andrei, DemoStart, Main, DemoVars, Operation, HW1):?', (w) = > {
-    console.log(w);console.log("Message:"+w)
-    console.log("Messagedsd:"+w)
-})
-//        if(args.length > 0)
-//            s = args[0];
-//        else {
-//            System.out.println("Choose Class (Andrei, DemoStart, Main, DemoVars, Operation, HW1):?");
-//            s = scan.nextLine();
-//        }
-//      //  scan.close();
-//
-//        switch (s){
-//            case "Andrei":
-//                Andrei.main(args);
-//            case "Vars":
-//                var demo = new DemoVars();
-//                demo.demo();
-//            case "Demo":
-//                DemoStart.main(args);
-//            break;
-//            case "Operation":
-//                Operation.calc();
-//                break;
-//            case "HW1":
-//                default:
-//                    HW1.Media();
-//        }
-//        scan.close();
-//    }
-//}
+if(args.length > 2)
+    s = args[2];
+else
+    s = scan.question("Choose Class (Andrei, DemoStart, Main, Vars, Operation, HW1):?");
+switch (s){
+    case "Andrei":
+        require("./Andrei");
+        break;
+    case "Vars":
+        const DemoVars = require("../vars/DemoVars");
+        const demo = new DemoVars();
+        demo.demo();
+    case "DemoStart":
+        require("./DemoStart");
+        break;
+    case "Operation":
+        require("../oper/Operation").calc();
+        break;
+    default:
+        console.warn("Not such class " + s);
+    case "Main":
+    case "HW1":
+        require("../homework/HW1").Media();
+}
+

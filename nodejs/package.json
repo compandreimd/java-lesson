@@ -2,6 +2,11 @@
   "name": "java_script-lesson",
   "version": "1.0.1",
   "dependencies": {
-    "readline": "^1.3.0"
+    "readline-sync": "^1.4.10"
+  },
+  "scripts": {
+    "DemoStart": "node start/DemoStart.js",
+    "Andrei": "node start/Andrei.js",
+    "Main": "node start/Main.js"
   }
 }

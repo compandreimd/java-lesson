@@ -2,20 +2,19 @@ package start;
 
 import homework.HW1;
 import oper.Operation;
-import org.jetbrains.annotations.NotNull;
 import vars.DemoVars;
 
 import java.util.Scanner;
 
 public class Main {
-    public static void main(@NotNull String[] args){
+    public static void main(String[] args){
         Scanner scan =  new Scanner(System.in);
 
         String s = "";
         if(args.length > 0)
             s = args[0];
         else {
-            System.out.println("Choose Class (Andrei, DemoStart, Main, DemoVars, Operation, HW1):?");
+            System.out.println("Choose Class (Andrei, DemoStart, Main, Vars, Operation, HW1):?");
             s = scan.nextLine();
         }
       //  scan.close();
@@ -26,13 +25,14 @@ public class Main {
             case "Vars":
                 var demo = new DemoVars();
                 demo.demo();
-            case "Demo":
+            case "DemoStart":
                 DemoStart.main(args);
             break;
             case "Operation":
                 Operation.calc();
                 break;
             case "HW1":
+            case "Main":
                 default:
                     HW1.Media();
         }
