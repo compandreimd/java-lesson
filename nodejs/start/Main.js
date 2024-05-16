@@ -5,8 +5,7 @@ const scan = readline.createInterface({
 });
 
 scan.question('Choose Class (Andrei, DemoStart, Main, DemoVars, Operation, HW1):?', (w) = > {
-    console.log(w);
-    console.log("Message:"+w)
+    console.log(w);console.log("Message:"+w)
     console.log("Messagedsd:"+w)
 })
 //        if(args.length > 0)
