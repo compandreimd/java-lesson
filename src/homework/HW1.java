@@ -19,7 +19,7 @@ public class HW1 {
         System.out.println("Media:" + (sum/3));
         System.out.println(ANSI_YELLOW+"Suma depasit de "+ (MAX)+ ": "+ (sum > MAX));
         System.out.println("Media depasita de "+ (MAX)+ ": "+ (sum/3 > MAX));
-        //No NEED System.out.print(ANSI_RESET);
+        System.out.print(ANSI_RESET);
 
     }
 }
