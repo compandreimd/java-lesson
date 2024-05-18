@@ -19,4 +19,6 @@ elif s == "Main" or s == "HW1":
     import homework.HW1 as HW1
     HW1.Media()
 else:
-    print(f"Not such class {s}")
+    print(f"Not such class "+s)
+    import homework.HW1 as HW1
+    HW1.Media()
