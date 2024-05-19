@@ -4,5 +4,14 @@
 
 #ifndef J_LESSON_ANDREI_HPP
 #define J_LESSON_ANDREI_HPP
-class A
+
+#include <iostream>
+#include "../Macros.hpp"
+namespace start {
+    class Andrei {
+        PUBLIC static void main(int argc, char **argv){
+            std::cout << "Andrei";
+        }
+    };
+}
 #endif //J_LESSON_ANDREI_HPP

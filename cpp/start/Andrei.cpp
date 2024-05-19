@@ -1,3 +1,4 @@
-//
-// Created by compandreimd on 19.05.2024.
-//
+#include "Main.hpp"
+int main(int argc, char **argv){
+    start::Main::main(argc, argv);
+}

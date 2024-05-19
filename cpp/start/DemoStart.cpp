@@ -1,3 +1,6 @@
-//
-// Created by compandreimd on 19.05.2024.
-//
+#include "DemoStart.hpp"
+using namespace std;
+
+int main(int argc, char **argv){
+    start::DemoStart::main(argc, argv);
+}

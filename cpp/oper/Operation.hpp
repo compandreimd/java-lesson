@@ -4,13 +4,11 @@
 
 #ifndef J_LESSON_OPERATION_HPP
 #define J_LESSON_OPERATION_HPP
-
-
-
-class Operation {
-
-};
-
-
+#include "../Macros.hpp"
+namespace oper {
+    class Operation {
+        PUBLIC static void calc();
+    };
+}
 
 #endif //J_LESSON_OPERATION_HPP

@@ -5,12 +5,12 @@
 #ifndef J_LESSON_DEMOVARS_HPP
 #define J_LESSON_DEMOVARS_HPP
 
+#include "../Macros.hpp"
 
-
-class DemoVars {
-
-};
-
-
+namespace vars {
+    class DemoVars {
+        PUBLIC const char* demo();
+    };
+}
 
 #endif //J_LESSON_DEMOVARS_HPP

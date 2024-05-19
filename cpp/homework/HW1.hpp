@@ -5,12 +5,12 @@
 #ifndef J_LESSON_HW1_HPP
 #define J_LESSON_HW1_HPP
 
-
-
-class HW1 {
-
-};
-
+#include "../Macros.hpp"
+namespace homework {
+    class HW1 {
+        PUBLIC void static Media();
+    };
+}
 
 
 #endif //J_LESSON_HW1_HPP
