@@ -4,8 +4,8 @@ import homework.HW1;
 
 import java.util.Scanner;
 
-public class C1 {
-    public static void Cond(){
+public class Ex {
+    public static void ex1(){
         Scanner scanner = new Scanner(System.in);
         final double MAX;
         //%
@@ -22,6 +22,20 @@ public class C1 {
         System.out.println((sum > MAX ? HW1.ANSI_YELLOW: HW1.ANSI_RESET)+"Suma depasit de "+ (MAX)+ ": "+ (sum > MAX));
         System.out.println(((sum/3.0) > MAX ? HW1.ANSI_YELLOW: HW1.ANSI_RESET)+"Media depasita de "+ (MAX)+ ": "+ (sum/3.0d > MAX));
         System.out.print(HW1.ANSI_RESET);
+
+    }
+    public static void ex2(){
+       // %3 => se imaprte la 3
+       // %5 => se imaprte la 5
+       // %3 % 5
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introdu numarul?");
+        int a = scanner.nextInt();
+        if(a % 3 == 0 && a % 5 == 0) System.out.println("Se imparte la 5 si 3!");
+        else if(a % 3 == 0) System.out.println("Se imparte la 3!");
+        else if(a % 5 == 0) System.out.println("Se imparte la 5!");
+
 
     }
 }
