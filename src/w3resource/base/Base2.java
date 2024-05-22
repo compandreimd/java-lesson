@@ -1,2 +1,9 @@
-package w3resource.base;public class Base2 {
+package w3resource.base;
+
+import java.util.Scanner;
+
+public class Base2 {
+    Scanner scanner = new Scanner(System.in);
+
+
 }
