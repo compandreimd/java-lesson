@@ -75,6 +75,9 @@ public class Main {
                 case "w3.c.8":
                     cond.Ex8();
                     break;
+                case "w3.c.9":
+                    cond.Ex9();
+                    break;
                 case "Ex":
                     System.out.println("Ex (1, 2):?");
                     s = scan.nextLine();

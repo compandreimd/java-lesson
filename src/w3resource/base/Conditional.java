@@ -49,15 +49,21 @@ public class Conditional {
         if (b > max) max = b;
         System.out.print("Input the 3st number:");
         double c = scan.nextDouble();
-        if (c > max) max = b;
+        if (c > max) max = c;
         System.out.print("The greatest: " + max);
     }
     public void Ex4() {
         System.out.print("Input value: ");
         float input = scan.nextFloat();
         String status = "Positive";
-        if (input < 0) status = "Negative";
-
+        if(input == 0){
+            System.out.println("Zero");
+            return;
+        }
+        if (input < 0) {
+            status = "Negative";
+            input = -input;
+        }
         if (input < 1) {
             System.out.println(status + " small number");
         } else if (input > 1000000) {
@@ -178,5 +184,50 @@ public class Conditional {
         else {
             System.err.print("Is not letter i know!");
         }
+    }
+    public void Ex9(){
+        System.out.print("Input the year: ");
+        int y = scan.nextInt();
+        if(y % 4 == 0 && (y % 100 != 0 || y % 400 == 0))
+            System.out.println("Is " + y + " leap year.");
+        else
+            System.out.println("Is " + y + " not leap year.");
+    }
+    public void Ex10(){
+        System.out.println("The first 10 natural numbers are:");
+        //Without for
+        System.out.println("1");
+        System.out.println("2");
+        System.out.println("3");
+        System.out.println("4");
+        System.out.println("5");
+        System.out.println("6");
+        System.out.println("7");
+        System.out.println("8");
+        System.out.println("9");
+        System.out.println("10");
+    }
+    public void Ex11(){
+        System.out.print("Input the number:");
+        int n = scan.nextInt();
+        System.out.println("The first "+n+" natural numbers are:");
+        long sum = 0;
+        for(int i = 1;i <= n;i++){
+            System.out.println(i);
+            sum += i;
+        }
+        System.out.println("The Sum of Natural Number upto n terms:");
+        System.out.println(sum);
+    }
+    public void Ex12(){
+        //without for
+        long sum = 0;
+        System.out.print("Input the 5 numbers :");
+        sum += scan.nextInt();
+        sum += scan.nextInt();
+        sum += scan.nextInt();
+        sum += scan.nextInt();
+        sum += scan.nextInt();
+        System.out.println("The sum of 5 no is :" + sum);
     }
 }
