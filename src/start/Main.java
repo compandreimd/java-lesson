@@ -1,6 +1,7 @@
 package start;
 
 import condition.Ifs;
+import game.UFO;
 import homework.HW1;
 import oper.Operation;
 import vars.DemoVars;
@@ -82,6 +83,9 @@ public class Main {
                         Ex.ex1();
                     if(s.compareTo("2") == 0)
                         Ex.ex2();
+                    break;
+                case "UFO":
+                    UFO.main(args);
                     break;
                 case "IFS":
                 case "Main":
