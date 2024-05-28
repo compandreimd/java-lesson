@@ -12,6 +12,15 @@ public class UFO {
         //p,f,h,
         System.out.println("Choose r(rock), s(scissors), p(paper)?");
         String my = scanner.nextLine();
+        int i = 0;
+        while (!(my.equals("r")|| my.equals("s")|| my.equals("p"))){
+            System.out.println("Choose r(rock), s(scissors), p(paper)?");
+            my = scanner.nextLine();
+            if(++i >= 3){
+                System.out.println("Nu are rost!");
+                return;
+            }
+        }
         int pc = randomNumberGenerator.nextInt(0,100) % 3;
         if(pc == 0) //rock
         {
