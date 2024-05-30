@@ -1,27 +1,38 @@
 package graph;
 
 import java.awt.*;
+
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.Random;
 
 public class UFO extends Frame {
     static final Random randomNumberGenerator = new Random();
+    Label Result;
     UFO(){
         super();
-        setSize(300,300);
+        setSize(300,100);
         setTitle("UFO");
         setLayout(null);
         generate();
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing (WindowEvent e) {
+                dispose();
+            }
+        });
         setVisible(true);
+
     }
     public void game(String me){
         int pc =  randomNumberGenerator.nextInt(0,100) % 3;
-
+        Result.setText(game.UFO.message(pc, me));
     }
+
     public void generate(){
         Button Rock = new Button("Rock");
         Button Paper = new Button("Paper");
         Button Scissor = new Button("Scissor");
-        Label Result = new Label("Let's play!");
+        Result = new Label("Let's play!");
         Result.setBounds(30,30, 300, 30);
         add(Result);
         Paper.setBounds(0,60, 100, 30);
@@ -30,9 +41,14 @@ public class UFO extends Frame {
         add(Rock);
         Scissor.setBounds(200,60, 100, 30);
         add(Scissor);
-
-        Paper.addActionListener(() => {
-
+        Paper.addActionListener(e -> {
+            game("p");
+        });
+        Scissor.addActionListener(e -> {
+            game("s");
+        });
+        Rock.addActionListener(e -> {
+            game("r");
         });
         // setting button position on screen
         //b.setBounds(0,0,80,30);
