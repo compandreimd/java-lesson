@@ -7,7 +7,6 @@ import java.awt.event.WindowEvent;
 import java.util.Random;
 
 public class UFO extends Frame {
-    static final Random randomNumberGenerator = new Random();
     Label Result;
     UFO(){
         super();
@@ -24,7 +23,7 @@ public class UFO extends Frame {
 
     }
     public void game(String me){
-        int pc =  randomNumberGenerator.nextInt(0,100) % 3;
+        String pc =  game.UFO.pcChoose();
         Result.setText(game.UFO.message(pc, me));
     }
 
