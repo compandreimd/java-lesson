@@ -44,22 +44,30 @@ public class UFO {
             }
         }
     }
-    public static void main(String[] args) {
-        //p,f,h,
+    public static int pcChoose(){
+        return randomNumberGenerator.nextInt(0,100) % 3;
+    }
+    public static String soutChoose(){
         System.out.print("Choose r(rock), s(scissors), p(paper)?");
         String my = scanner.nextLine();
         int i = 0;
         while (!(my.equals("r") || my.equals("s")|| my.equals("p"))){
-           if(++i >= 3){
-                System.out.println("There is no point!");
-                //(Exit app)
-                return;
+            if(++i >= 3){
+                return null;
+                //(Exit functopm)
             }
             System.out.print("Choose r(rock), s(scissors), p(paper)?");
             my = scanner.nextLine();
         }
-        int pc = randomNumberGenerator.nextInt(0,100) % 3;
-
-        System.out.println(UFO.message(pc, my));
+        return my;
+    }
+    public static void main(String[] args) {
+        //p,f,h,
+        int pc = pcChoose();
+        String my = soutChoose();
+        if(my == null)
+            System.out.println( "There is no point!");
+        else
+            System.out.println(message(pc, my));
     }
 }
