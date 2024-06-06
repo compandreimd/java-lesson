@@ -25,11 +25,9 @@ public class UFO {
        writer =  new PrintWriter(out, true);
     }
     public static void setSerInput(InputStream in){
-        scanner = new Scanner(in);
+        sScanner = new Scanner(in);
     }
-    public static void setSerOutput(OutputStream out){
-        writer =  new PrintWriter(out, true);
-    }
+    public static void setSerOutput(OutputStream out){sWritter =  new PrintWriter(out, true);}
 
 
     public static String message(String s, String my) {
@@ -99,14 +97,22 @@ public class UFO {
         return my;
     }
     public static void server(int port) throws IOException{
+        ServerSocket serverSocket = new ServerSocket(port);
         while (true){
-            socket = new ServerSocket(port).accept();
+
+            socket = serverSocket.accept();
             if(name != null) {
                 writer.println("Name:");
                 name = scanner.nextLine();
             }
-            //setInput(socket.getInputStream());
-            //setOutput(socket.getOutputStream());
+            setSerInput(socket.getInputStream());
+            setSerOutput(socket.getOutputStream());
+            if(sScanner.hasNextLine()){
+                writer.println(sScanner.nextLine());
+                writer.println(sScanner.nextLine());
+            }
+            serverSocket.close();
+
         }
         //Task task = new
 //           while (true) {
@@ -136,18 +142,20 @@ public class UFO {
 
     }
     public static void client(String host, int port) throws IOException {
-        writer.println("Client");
         socket = new Socket(host, port);
+
+        setSerInput(socket.getInputStream());
+        setSerOutput(socket.getOutputStream());
         if(name != null) {
             writer.println("Name:");
             name = scanner.nextLine();
         }
-        //setInput(socket.getInputStream());
-        //setOutput(socket.getOutputStream());
+        sWritter.println(name);
+        sWritter.println("Connect");
     }
-    public static void main(String[] args) {
-        //setInput(System.in);
-        //setOutput(System.out);
+    public static void main(String @NotNull [] args) {
+        setMainInput(System.in);
+        setMainOutput(System.out);
         if(args.length >= 2){
             String choose = args[0];
             if(choose.startsWith("s")){
@@ -160,10 +168,6 @@ public class UFO {
                     }
                 });
                 th.start();
-                if(name != null) {
-                    System.out.println("Name:");
-                    name = scanner.nextLine();
-                }
             }
             else {
                 String host = args[1];
