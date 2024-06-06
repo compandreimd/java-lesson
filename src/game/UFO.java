@@ -10,24 +10,27 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class UFO {
-    static InputStream input;
-    static BufferedReader reader;
-    static OutputStream output;
-    static  PrintWriter writer;
     static Socket socket = null;
-    static String name;
+    static String name = null;
     static String my;
     static final Random randomNumberGenerator = new Random();
     static Scanner scanner;
-    public static void setInput(InputStream in){
-        input = in;
+    static Scanner sScanner;
+    static PrintWriter writer;
+    static PrintWriter sWritter;
+    public static void setMainInput(InputStream in){
         scanner = new Scanner(in);
-        reader = new BufferedReader(new InputStreamReader(input));
     }
-    public static void setOutput(OutputStream out){
-       output = out;
-       writer =  new PrintWriter(output, true);
+    public static void setMainOutput(OutputStream out){
+       writer =  new PrintWriter(out, true);
     }
+    public static void setSerInput(InputStream in){
+        scanner = new Scanner(in);
+    }
+    public static void setSerOutput(OutputStream out){
+        writer =  new PrintWriter(out, true);
+    }
+
 
     public static String message(String s, String my) {
         return  message(s, my, "PC", "MY");
@@ -84,7 +87,6 @@ public class UFO {
 
     }
     public static @Nullable String soutChoose(){
-        writer.println("Choose r(rock), s(scissors), p(paper)?");
         String my = scanner.nextLine();
         int i = 0;
         while (!(my.equals("r") || my.equals("s")|| my.equals("p"))){
@@ -96,15 +98,23 @@ public class UFO {
         }
         return my;
     }
-
     public static void server(int port) throws IOException{
+        while (true){
+            socket = new ServerSocket(port).accept();
+            if(name != null) {
+                writer.println("Name:");
+                name = scanner.nextLine();
+            }
+            //setInput(socket.getInputStream());
+            //setOutput(socket.getOutputStream());
+        }
         //Task task = new
-           while (true) {
-               socket = new ServerSocket(port).accept();
-               setInput(socket.getInputStream());
-               setOutput(socket.getOutputStream());
-               System.out.println("hERE");
-           }
+//           while (true) {
+//               socket = new ServerSocket(port).accept();
+//               setInput(socket.getInputStream());
+//               setOutput(socket.getOutputStream());
+//               System.out.println("hERE");
+//           }
 
 //                writer.println("name");
 //                String line = reader.readLine();
@@ -126,13 +136,18 @@ public class UFO {
 
     }
     public static void client(String host, int port) throws IOException {
+        writer.println("Client");
         socket = new Socket(host, port);
-
-        System.out.println("hERE");
+        if(name != null) {
+            writer.println("Name:");
+            name = scanner.nextLine();
+        }
+        //setInput(socket.getInputStream());
+        //setOutput(socket.getOutputStream());
     }
     public static void main(String[] args) {
-        setInput(System.in);
-        setOutput(System.out);
+        //setInput(System.in);
+        //setOutput(System.out);
         if(args.length >= 2){
             String choose = args[0];
             if(choose.startsWith("s")){
@@ -145,56 +160,27 @@ public class UFO {
                     }
                 });
                 th.start();
+                if(name != null) {
+                    System.out.println("Name:");
+                    name = scanner.nextLine();
+                }
+            }
+            else {
+                String host = args[1];
+                int port = Integer.parseInt(args[2]);
+                Thread th = new Thread(() -> {
+                    try {
+                        client(host, port);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+                th.start();
                 System.out.println("Name:");
                 name = scanner.nextLine();
             }
-        }else
-//        System.out.println(args.length);
-//        if(args.length >= 2){
-//            String choose = args[0];
-//            String m = "";
-//            if(choose.startsWith("s")){
-//                int port = Integer.parseInt(args[1]);
-//
-//
-//            }
-//            else {
-//                String host = args[1];
-//                int port = Integer.parseInt(args[2]);
-//                System.out.println("Connecting at port "+port+".");
-//                try {
-//                    socket = new Socket(host, port);
-//                    InputStream input = socket.getInputStream();
-//                    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-//                    OutputStream output = socket.getOutputStream();
-//                    PrintWriter writer = new PrintWriter(output, true);
-//                    String line;
-//                    do {
-//                        line = reader.readLine();
-//                        switch (line) {
-//                            case "name":
-//                                System.out.println("What your name?");
-//                                writer.println("name");
-//                                writer.println(scanner.nextLine());
-//                                break;
-//                            case "choose":
-//                                String s = reader.readLine();
-//                                m = soutChoose();
-//                                writer.println("end");
-//                                writer.println(m);
-//                                System.out.println(message(s, m));
-//                                return;
-//                        }
-//                    } while (!line.equals("exit"));
-//
-//                } catch (IOException e) {
-//                    System.err.println(e);
-//                    socket = null;
-//
-//                }
-//            }
-//        }
-        if(socket == null) {
+        }
+        else if(socket == null) {
             String pc = pcChoose();
             String my = soutChoose();
             writer.println(message(pc, my));
