@@ -3,8 +3,39 @@ package forloop;
 import java.util.Scanner;
 
 public class ForLoop {
+    //HW triangles
+    /*
+****
+***
+**
+*
+
+*
+**
+***
+****
+
+****
+ ***
+  **
+   *
+
+   *
+  **
+ ***
+****
+
+(MY Version)
+  *
+ ***
+*****
+
+     */
     public static void main(String[] args) {
-        for (int i = 10; i >= 0; i--) {
+        Scanner scanner = new Scanner(System.in);
+        int size = scanner.nextInt();
+
+        for (int i =size; i >= 0; i--) {
             for (int j = 0; j < i; j++) {
                 System.out.print("*");
             }
