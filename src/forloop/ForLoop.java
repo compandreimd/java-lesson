@@ -25,10 +25,6 @@ public class ForLoop {
  ***
 ****
 
-(MY Version)
-  *
- ***
-*****
 
      */
     public static void main(String[] args) {
