@@ -42,7 +42,7 @@ int Main::main(int argc, char **argv) {
         std::cout << ANSI_YELLOW << "Not such class " << s << ANSI_RESET << std::endl;
         homework::HW1::Media();
     }
-
+    return 0;
 }
 
 int main(int argc, char **argv){

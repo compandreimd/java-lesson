@@ -1,3 +1,4 @@
+cmake_minimum_required(VERSION 3.27)
 project("j_lesson")
 add_executable(main  Macros.hpp
         start/Main.cpp

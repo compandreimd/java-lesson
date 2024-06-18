@@ -3,11 +3,13 @@ package homework;
 import java.util.Scanner;
 
 public class HW3 {
-    public static final int SIZE = 4;
+    public static int SIZE = 5;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int[]  sir = new int[SIZE];
         int max;
+        System.out.print("Cate elemente:");
+        SIZE = scanner.nextInt();
+        int[]  sir = new int[SIZE];
         for(int i = 0; i < SIZE; i++) {
             System.out.print("Insert element "+ i+":");
             sir[i] = scanner.nextInt();
@@ -27,7 +29,37 @@ public class HW3 {
             System.out.print(" " + sir[i]);
             if (max < sir[i]) max = sir[i];
         }
+        System.out.print("\r\nPart 3:");
+        for(int i = 0; i < SIZE; i+=2) {
+            System.out.print(" " + sir[i]);
+          //  if (max < sir[i]) max = sir[i];
+        }
+        System.out.print("\r\nPart 4:");
+        for(int i = 1; i < SIZE; i+=2) {
+            System.out.print(" " + sir[i]);
+            //  if (max < sir[i]) max = sir[i];
+        }
+        System.out.print("\r\nPart 5:");
+        for(int i = SIZE/2; i < SIZE; i++) {
+            System.out.print(" " + sir[i]);
+            if (max < sir[i]) max = sir[i];
+        }
         System.out.print("\r\nMAX:"+max);
+
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = i + 1; j < SIZE; j++) {
+                int tmp;
+                if(sir[i] > sir[j]){
+                    tmp = sir[i];
+                    sir[i] = sir[j];
+                    sir[j] = tmp;
+                }
+            }
+        }
+        System.out.print("\r\nSORT:");
+        for (int i = 0; i < SIZE; i++) {
+            System.out.print(" " + sir[i]);
+        }
 
     }
 }
