@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class HW4 {
 
-    public static <T> void print(String space, int[] sir){
+    public static void print(String space, int[] sir){
         if(sir == null)
         {
             System.out.println("Is null!");
@@ -21,7 +21,7 @@ public class HW4 {
         }
         System.out.print(space+sir[last]);
     }
-    public static <T> void print(String space, String[] sir){
+    public static void print(String space, String[] sir){
         if(sir == null)
         {
             System.out.println("Is null!");
