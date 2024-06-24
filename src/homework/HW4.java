@@ -167,6 +167,7 @@ public class HW4 {
             digits[i] = n % 10;
             n /= 10;
             i++;
+
         }
         return digits;
     }
