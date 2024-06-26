@@ -1,8 +1,8 @@
 package oop;
 
 public class Caine extends Animal{
-    @Override
-    public void voice() {
+
+    public void aVoid() {
         System.out.println("Ham Ham");
     }
 }

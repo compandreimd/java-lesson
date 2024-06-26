@@ -3,14 +3,20 @@ package oop;
 //mostu
 public class Oop{
     public native long malloc(int size);
-    public native void 
+    public native byte[] bytes(long addr);
+    public native void free(long addr);
 
     public static void main(String[] args) {
-        System.load("C:\\Users\\Step\\IdeaProjects\\java-lesson\\jni\\build\\Debug\\mylib.dll");
+        String OS = System.getProperty("os.name").toLowerCase();
+        if(OS.contains("win"))
+            System.load("C:\\Users\\Step\\IdeaProjects\\java-lesson\\jni\\build\\Debug\\mylib.dll");
+        else
+            System.load("/Users/compandreimd/java-lesson/jni/libmylib.dylib");
         Oop oop = new Oop();
         System.out.println(oop);
-        long test = oop.test();
+        long test = oop.malloc(100);
         System.out.println(Long.toString(test, 16));
+        oop.free(test);
        Person person[] = {
                new Person("P", 29),
                new LicPerson("L", 20),
@@ -18,11 +24,11 @@ public class Oop{
        };
        Animal animal[] = {
                new Animal(),
-               new Pisica(),
+               new Cat(),
                new Caine()
        };
         for(Animal a : animal){
-            a.voice();
+            a.mak();
         }
         for (int i = 0; i < person.length; i++) {
             if(person[i] instanceof Medic){
