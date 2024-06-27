@@ -6,11 +6,13 @@ public class Person {
 
     private String lastName;
     private String firstName;
+    private String address;
     private int age;
 
-    public Person(String name, int age) {
+    public Person(String name, int age, String address) {
         this.firstName = name;
         this.age = age;
+        this.address = address;
     }
     public int getAge() {
         return age;
@@ -39,4 +41,16 @@ public class Person {
     }
 
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "P";
+    }
 }

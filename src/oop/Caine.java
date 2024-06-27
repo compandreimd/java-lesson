@@ -2,7 +2,7 @@ package oop;
 
 public class Caine extends Animal{
 
-    public void aVoid() {
+    public void makeSound() {
         System.out.println("Ham Ham");
     }
 }

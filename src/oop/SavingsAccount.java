@@ -4,6 +4,10 @@ public class SavingsAccount extends BankAccount{
     @Override
     public void withdraw(double amount) {
         //super.withdraw(amount);
-        System.out.println("no access");
+        if(this.getAmount() - amount <= 100) {
+            System.out.println("Min. 100$");
+            return;
+        }
+        super.withdraw(amount);
     }
 }

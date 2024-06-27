@@ -1,7 +1,5 @@
 package oop;
 
-public class Animal {
-    public void makeSound(){
-        System.out.println("Sunt animal!");
-    }
+public abstract class Animal {
+    public abstract void makeSound();
 }

@@ -6,7 +6,7 @@ public class LicPerson extends Person{
     private UUID licId;
 
     public LicPerson(String name, int age) {
-        super(name, age);
+        super(name, age, "");
     }
 
     public UUID getLicId() {
