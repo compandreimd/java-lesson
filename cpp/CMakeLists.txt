@@ -1,6 +1,9 @@
-cmake_minimum_required(VERSION 3.27)
+cmake_minimum_required(VERSION 3.20)
 project("j_lesson")
+include_directories(".")
 add_executable(main  Macros.hpp
+        cicle/Whl.cpp
+        cicle/Whl.hpp
         start/Main.cpp
         start/Main.hpp
         start/Andrei.hpp
@@ -11,6 +14,7 @@ add_executable(main  Macros.hpp
         vars/DemoVars.hpp
         homework/HW1.cpp
         homework/HW1.hpp
+
         )
 add_executable(demoStart start/DemoStart.cpp)
 add_executable(andrei start/Andrei.cpp)

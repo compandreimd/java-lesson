@@ -1,114 +1,133 @@
 package start;
 
-import condition.Ifs;
+import cicle.Whl;
+import clazz.App;
+import clazz.DemoEx;
+import clazz.Point;
+import condition.Sw;
+import forloop.ForLoop;
 import game.UFO;
-import homework.HW1;
-import oper.Operation;
-import vars.DemoVars;
-import condition.Ex;
-import w3resource.base.Base1;
-import w3resource.base.Conditional;
+import homework.HW2;
+import homework.HW3;
+import homework.HW4;
+import homework.Student;
+import method.Mth;
+import oop.Oop;
+import org.jetbrains.annotations.NotNull;
+import sir.SIr;
+import sir.Sir2D;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
-    public static boolean isRepeat(String arg){
-        return arg.contentEquals("1")||arg.contentEquals("yes")||arg.contentEquals("y");
-    }
-    public static void main(String[] args){
-        Scanner scan =  new Scanner(System.in);
+    private static String END = "exit";
 
-        String s = "";
-        String bs = "";
-        boolean b = false;
-        if(args.length > 0) {
-            s = args[0];
-            if(args.length > 1){
-                    b = isRepeat(args[1]);
-            }
+    public static boolean isRepeat(@NotNull String arg) {
+        return arg.contentEquals("1") || arg.contentEquals("yes") || arg.contentEquals("y");
+    }
+
+
+    private static String choose(Scanner scanner, @NotNull Dictionary<String, Runnable> dic) {
+        Enumeration<String> eKeys = dic.keys();
+        List<String> keys = new ArrayList<>();
+        dic.put(END, () -> {
+        });
+        while (eKeys.hasMoreElements()) {
+            keys.add(eKeys.nextElement());
         }
-        else {
-            System.out.println("Choose Class (Andrei, DemoStart, Main, Vars, Operation, HW1 ...):?");
-            s = scan.nextLine();
-            System.out.print("Repeat:");
-            bs = scan.nextLine();
-            b = isRepeat(bs);
-        }
-      //  scan.close();
-        Conditional cond = new Conditional();
-        while (s.compareTo("Exit") != 0 && b){
-            switch (s){
-                case "Andrei":
-                    Andrei.main(args);
-                case "Vars":
-                    var demo = new DemoVars();
-                    demo.demo();
-                case "DemoStart":
-                    DemoStart.main(args);
-                break;
-                case "Operation":
-                    Operation.calc();
-                    break;
-                case "HW1":
-                    HW1.Media();
-                    break;
-                case "w3.c.1":
-                    cond.Ex1();
-                    break;
-                case "w3.c.2":
-                    cond.Ex2();
-                    break;
-                case "w3.c.3":
-                    cond.Ex3();
-                    break;
-                case "w3.c.4":
-                    cond.Ex4();
-                    break;
-                case "w3.c.5":
-                    cond.Ex5();
-                    break;
-                case "w3.c.6":
-                    cond.Ex6();
-                    break;
-                case "w3.c.7":
-                    cond.Ex7();
-                    break;
-                case "w3.c.8":
-                    cond.Ex8();
-                    break;
-                case "Ex":
-                    System.out.println("Ex (1, 2):?");
-                    s = scan.nextLine();
-                    if(s.compareTo("1") == 0)
-                        Ex.ex1();
-                    if(s.compareTo("2") == 0)
-                        Ex.ex2();
-                    break;
-                case "UFO":
-                    UFO.main(args);
-                    break;
-                case "IFS":
-                case "Main":
-                    default:
-                        System.out.println("Choose Class (if, ifelse, ifelseif):?");
-                        s = scan.nextLine();
-                        if(s.compareTo("if") == 0)
-                            Ifs.mIf();
-                        else if(s.compareTo("ifelseif") == 0)
-                            Ifs.mIfElseIf();
-                        else
-                            Ifs.mIfElse();
-            }
-            if(!b) {
-                System.out.println("Choose Class (Andrei, DemoStart, Main, Vars, Operation, HW1, C1, IFS, Exit ...):?");
-                s = scan.nextLine();
-            }
-            else {
-                System.out.print("Repeat:");
-                bs = scan.nextLine();
-                b = isRepeat(bs);
-                if(!b) s = "Exit";
-            }
-        }
+        keys.sort((a, b) -> {
+            return (a.compareTo(END) != 0 ? 0 : 100) + a.compareTo(b);
+        });
+        String choose;
+        do {
+            System.out.println("Choose from (" + String.join(", ", keys) + ") ?");
+            choose = scanner.nextLine();
+
+        } while (!keys.contains(choose));
+        dic.get(choose).run();
+        return choose;
+    }
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        Hashtable<String, Runnable> table = new Hashtable();
+
+        table.put("cicle", () -> {
+            Whl.main(args);
+        });
+        table.put("clazz", () -> {
+            Hashtable<String, Runnable> kidTable = new Hashtable();
+            kidTable.put("App", () -> {
+                App.main(args);
+            });
+            kidTable.put("DemoEx", () -> {
+                DemoEx.main(args);
+            });
+            kidTable.put("Point", () -> {
+                Point.main(args);
+            });
+            while (!choose(scan, kidTable).equals(END)) ;
+        });
+        table.put("condition", () -> {
+            Sw.main(args);
+        });
+        table.put("forloop", () -> {
+            ForLoop.main(args);
+        });
+        table.put("game", () -> {
+            UFO.main(args);
+        });
+        table.put("graph", () -> {
+            graph.UFO.main(args);
+        });
+        table.put("homework", () -> {
+            Hashtable<String, Runnable> kidTable = new Hashtable();
+            kidTable.put("HW2", () -> {
+                HW2.main(args);
+            });
+            kidTable.put("HW3", () -> {
+                HW3.main(args);
+            });
+            kidTable.put("HW4", () -> {
+                HW4.main(args);
+            });
+            kidTable.put("Student", () -> {
+                Student.main(args);
+            });
+            while (!choose(scan, kidTable).equals(END)) ;
+        });
+        table.put("method", () -> {
+            Mth.main(args);
+        });
+        table.put("oop", () -> {
+            Oop.main(args);
+        });
+        table.put("sir", () -> {
+            Hashtable<String, Runnable> kidTable = new Hashtable();
+            kidTable.put("Sir", () -> {
+                SIr.main(args);
+            });
+            kidTable.put("Sir2D", () -> {
+                Sir2D.main(args);
+            });
+            while (!choose(scan, kidTable).equals(END)) ;
+        });
+        table.put("start", () -> {
+            Hashtable<String, Runnable> kidTable = new Hashtable();
+            kidTable.put("Andrei", () -> {
+                Andrei.main(args);
+            });
+            kidTable.put("DemoStart", () -> {
+                DemoStart.main(args);
+            });
+            kidTable.put("Main", () -> {
+                main(args);
+            });
+            while (!choose(scan, kidTable).equals(END)) ;
+        });
+
+
+        while (!choose(scan, table).equals(END)) ;
+
     }
 }

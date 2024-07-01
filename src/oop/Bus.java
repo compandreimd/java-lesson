@@ -8,6 +8,6 @@ public class Bus implements IVechicle{
 
     @Override
     public int getMaxPersons() {
-        return x;
+        return 10;
     }
 }

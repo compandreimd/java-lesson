@@ -1,4 +1,7 @@
 #ifndef J_LESSON_HW1_HPP
 #define J_LESSON_HW1_HPP
-class WhkAsdLkj123
+#include "../Macros.hpp"
+class Whl {
+    PUBLIC static void main(int argc, char **argv);
+};
 #endif //J_LESSON_HW1_HPP
