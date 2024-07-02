@@ -1,14 +1,19 @@
 package sir;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class Sir2D {
-    public static void print(int[][] mat){
+    public final static <T> void print(T[][] mat){
           if(mat == null)
               return;
+        for (T[] ints : mat) {
+            for (T anInt : ints) {
+                System.out.print(anInt + ",\t");
+            }
+            System.out.println("");
+        }
+    }
+    public final static <T> void print(int[][] mat){
+        if(mat == null)
+            return;
         for (int[] ints : mat) {
             for (int anInt : ints) {
                 System.out.print(anInt + ",\t");

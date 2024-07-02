@@ -1,5 +1,7 @@
 package oop;
 
+import oop.demo.Per;
+
 //mostu
 public class Oop{
    // public native long malloc(int size);
@@ -43,5 +45,10 @@ public class Oop{
                 System.out.println("Persona:" + p.toString());
             }
         }
+        Per pp = new Per(30);
+        Per p2 = new Per(20);
+        Per.bonus = 45;
+        System.out.println(pp.getSalariuWithBonus());
+        System.out.println(p2.getSalariuWithBonus());
     }
 }

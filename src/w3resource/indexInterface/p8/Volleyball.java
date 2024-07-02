@@ -1,4 +1,9 @@
 package w3resource.indexInterface.p8;
 
-public class Volleyball extends Football {
+public class Volleyball implements Playable {
+
+    @Override
+    public void play() {
+        System.out.println("voo");
+    }
 }

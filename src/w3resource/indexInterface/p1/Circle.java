@@ -1,9 +1,30 @@
 package w3resource.indexInterface.p1;
 
-public class Circle implements Shape
+import w3resource.indexInterface.p6.Drawable;
+
+public class Circle implements Shape, Drawable
 {
+    private int radius = 0;
+
+    public int getRadius() {
+        return radius;
+    }
+
+    public void setRadius(int radius) {
+        this.radius = radius;
+    }
+
     @Override
     public double getArea() {
-        return 0;
+        return Math.PI*radius*radius;
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("*");
+        System.out.println("* *");
+        System.out.println("*   *");
+        System.out.println("* *");
+        System.out.println("*");
     }
 }
