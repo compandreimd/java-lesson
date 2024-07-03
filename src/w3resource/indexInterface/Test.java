@@ -16,6 +16,8 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
+import java.util.Timer;
+
 public class Test {
 
     public static void main(String[] args) throws InvalidAlgorithmParameterException, NoSuchPaddingException, UnsupportedEncodingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, BadPaddingException, InvalidKeyException {
@@ -31,6 +33,7 @@ public class Test {
                 new MergeSort(),
                 new SelectionSort()
         };
+        Timer t = new Timer();
         for (Sortable sortable: sortables) {
             long startTime = System.nanoTime();
             int sortarr[] =  sortable.sort(arr);

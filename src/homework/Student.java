@@ -3,17 +3,30 @@ package homework;
 import java.util.Scanner;
 
 public class Student {
+    private static int students = 0;
+    private int id = 0;
+
     private String name;
     private double nota;
 
+    public static int getStudents() {
+        return students;
+    }
+
+    public int getId() {
+        return id;
+    }
+
     public Student() {
-        this.name = "";
-        this.nota = 0;
+        Student.students++;
+        id = Student.students;
     }
 
     public Student(String name, double nota) {
+        this();
         this.name = name;
         this.nota = nota;
+
     }
 
     public String getName() {
