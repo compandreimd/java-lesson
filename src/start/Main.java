@@ -52,6 +52,7 @@ public class Main {
         Properties properties = System.getProperties();
         properties.list(System.out);
     }
+
     public static void main(String[] args) {
         GetProps();
         Scanner scan = new Scanner(System.in);
