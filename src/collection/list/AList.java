@@ -17,6 +17,7 @@ public class AList {
       list.add("Jhon");
       list.add("Sergiu");
       list.add("Petru");
+
         System.out.println("----------------------");
       System.out.println(list.get(0));
         System.out.println("----------------------");

@@ -5,6 +5,13 @@ public class Person {
     String last;
     int age;
 
+    public Person(){}
+    public Person(String name, String last, int age){
+        this.name =  name;
+        this.last = last;
+        this.age = age;
+    }
+
     public void setAge(int age) {
         this.age = age;
     }

@@ -1,9 +1,12 @@
 package collection;
 
 import collection.list.AList;
+import collection.set.DemoSet;
 import oop.access.A;
 
 import java.util.*;
+
+import static java.util.Arrays.*;
 
 public class Main {
     static class Node{
@@ -54,8 +57,22 @@ public class Main {
 
     }
     public static void main(String[] args){
-        //AList list = new AList();
-        //list.ex();
-        MapNodes();
+        int[] a = {1, 2, 3, 4, 5};
+        int[] b = {1, 2, 6, 7, 8, 9};
+        List<Integer> la, lb, tmp;
+        la = new ArrayList<>(stream(a).boxed().toList());
+        lb = new ArrayList<>(stream(b).boxed().toList());
+        tmp =  new ArrayList<>(la);
+        la.removeAll(lb);
+        lb.removeAll(tmp);
+        tmp.clear();
+
+        TreeSet<Integer> hs = new TreeSet<>();
+        hs.addAll(la);
+        hs.addAll(lb);
+
+        for (Integer i : hs){
+              System.out.println(i);
+        }
     }
 }
