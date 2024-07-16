@@ -14,23 +14,18 @@ public class HW6 {
         Scanner scanner = new Scanner(System.in);
         String line = scanner.nextLine();
         System.out.println("Have:");
-        var map = countChars(line);
-        for (var c : map.entrySet()) {
+        for (var c : countChars(line).entrySet()) {
             System.out.println("'"+c.getKey()+"':\t"+ c.getValue() +"||"+ Character.getName(c.getKey()));
         }
     }
+    public static @NotNull Map<Character, Integer> countChars(@NotNull String str){
 
-    public static @NotNull Map<Character, Integer> countChars(String str){
         TreeMap<Character, Integer> rs = new TreeMap<>();
-        if(str == null)  return rs;
-        for(Character c : str.toUpperCase(Locale.ROOT).toCharArray()) {
-            if(rs.containsKey(c)){
-                rs.put(c, rs.get(c)+ 1);
-            }
-            else {
-                rs.put(c, 1);
-            }
-        }
+        for(Character c : str
+                .replaceAll("\\W", "") //Print without space \\s, without not word
+                .toUpperCase(Locale.ROOT) // Show only upper case char
+                .toCharArray()) // Split in chars
+            rs.put(c, rs.get(c) == null ? 1 : rs.get(c) + 1); //Main logic
         return rs;
     }
 }
