@@ -5,7 +5,7 @@
 #ifndef J_LESSON_DEMOVARS_HPP
 #define J_LESSON_DEMOVARS_HPP
 
-#include "../Macros.hpp"
+#include "../helper/Macros.hpp"
 
 namespace vars {
     class DemoVars {

@@ -4,7 +4,7 @@
 
 #ifndef J_LESSON_MAIN_HPP
 #define J_LESSON_MAIN_HPP
-#include "../Macros.hpp"
+#include "../helper/Macros.hpp"
 namespace start {
     class Main {
         PUBLIC static int main(int argc, char **argv);

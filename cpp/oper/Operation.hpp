@@ -4,7 +4,7 @@
 
 #ifndef J_LESSON_OPERATION_HPP
 #define J_LESSON_OPERATION_HPP
-#include "../Macros.hpp"
+#include "../helper/Macros.hpp"
 namespace oper {
     class Operation {
         PUBLIC static void calc();
