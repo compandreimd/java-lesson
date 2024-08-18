@@ -1,11 +1,11 @@
-package main.java.w3resource.indexInterface;
+package w3resource.indexInterface;
 
-import main.java.sir.SIr;
+import sir.SIr;
 
-import main.java.w3resource.indexInterface.p11.MergeSort;
-import main.java.w3resource.indexInterface.p7.BubbleSort;
-import main.java.w3resource.indexInterface.p7.SelectionSort;
-import main.java.w3resource.indexInterface.p7.Sortable;
+import w3resource.indexInterface.p11.MergeSort;
+import w3resource.indexInterface.p7.BubbleSort;
+import w3resource.indexInterface.p7.SelectionSort;
+import w3resource.indexInterface.p7.Sortable;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;

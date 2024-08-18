@@ -1,4 +1,4 @@
-package main.java.w3resource.indexInterface.p2;
+package w3resource.indexInterface.p2;
 
 public class Dog implements Animal{
     @Override

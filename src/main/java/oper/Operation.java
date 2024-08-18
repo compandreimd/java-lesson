@@ -1,4 +1,4 @@
-package main.java.oper;
+package oper;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

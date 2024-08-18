@@ -1,6 +1,6 @@
-package main.java.w3resource.indexInterface.p1;
+package w3resource.indexInterface.p1;
 
-import main.java.w3resource.indexInterface.p6.Drawable;
+import w3resource.indexInterface.p6.Drawable;
 
 public class Triangle implements Shape, Drawable {
     private int height;

@@ -1,6 +1,6 @@
-package main.java.oop;
+package oop;
 
-import main.java.oop.demo.Per;
+import oop.demo.Per;
 
 //mostu
 public class Oop{

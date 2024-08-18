@@ -1,4 +1,4 @@
-package main.java.oop.demo;
+package oop.demo;
 
 public class Per {
     private double salariu;

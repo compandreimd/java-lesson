@@ -1,6 +1,6 @@
 package collection.set;
 
-import main.java.w3resource.indexInterface.p4.IAccount;
+import w3resource.indexInterface.p4.IAccount;
 
 class BinaryTree <T extends Comparable>{
     BinaryTree LeftSub;

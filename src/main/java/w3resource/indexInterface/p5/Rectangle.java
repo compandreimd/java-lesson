@@ -1,4 +1,4 @@
-package main.java.w3resource.indexInterface.p5;
+package w3resource.indexInterface.p5;
 
 public class Rectangle implements  Resizable{
     private int width;

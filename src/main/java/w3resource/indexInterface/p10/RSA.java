@@ -1,4 +1,4 @@
-package main.java.w3resource.indexInterface.p10;
+package w3resource.indexInterface.p10;
 
 import java.math.BigInteger;
 

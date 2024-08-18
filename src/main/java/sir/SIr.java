@@ -1,4 +1,4 @@
-package main.java.sir;
+package sir;
 
 public class SIr {
     //HW din sir de tip int  (4) {scaner}

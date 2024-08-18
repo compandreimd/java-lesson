@@ -1,7 +1,7 @@
 package access;
 
-import main.java.oop.access.A;
-import main.java.oop.access.lvl.N;
+import oop.access.A;
+import oop.access.lvl.N;
 
 public class Ac {
 

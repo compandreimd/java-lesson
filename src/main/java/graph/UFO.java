@@ -1,4 +1,4 @@
-package main.java.graph;
+package graph;
 
 import java.awt.*;
 
@@ -22,8 +22,8 @@ public class UFO extends Frame {
 
     }
     public void game(String me){
-        String pc =  main.java.game.UFO.pcChoose();
-        Result.setText(main.java.game.UFO.message(pc, me));
+        String pc =  game.UFO.pcChoose();
+        Result.setText(game.UFO.message(pc, me));
     }
 
     public void generate(){

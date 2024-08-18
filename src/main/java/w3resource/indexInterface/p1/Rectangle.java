@@ -1,7 +1,7 @@
-package main.java.w3resource.indexInterface.p1;
+package w3resource.indexInterface.p1;
 
-import main.java.w3resource.indexInterface.p5.Resizable;
-import main.java.w3resource.indexInterface.p6.Drawable;
+import w3resource.indexInterface.p5.Resizable;
+import w3resource.indexInterface.p6.Drawable;
 
 public class Rectangle implements Shape, Drawable , Resizable {
     private double width;

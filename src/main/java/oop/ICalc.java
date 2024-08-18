@@ -1,4 +1,4 @@
-package main.java.oop;
+package oop;
 
 public interface ICalc  {
     int max = 100;

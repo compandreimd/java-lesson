@@ -1,4 +1,4 @@
-package main.java.sir;
+package sir;
 
 public class Sir2D {
     public final static <T> void print(T[][] mat){

@@ -1,4 +1,4 @@
-package main.java.w3resource.collections;
+package w3resource.collections;
 
 import java.util.*;
 

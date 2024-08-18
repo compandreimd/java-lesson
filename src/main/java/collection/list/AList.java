@@ -1,6 +1,6 @@
 package collection.list;
 
-import main.java.homework.Student;
+import homework.Student;
 
 import java.util.ArrayList;
 import java.util.Iterator;

@@ -1,4 +1,4 @@
-package main.java.w3resource.indexInterface.p9;
+package w3resource.indexInterface.p9;
 
 public class Document implements Searchable{
     private String content;

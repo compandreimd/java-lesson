@@ -1,6 +1,6 @@
-package main.java.w3resource.indexInterface.p11;
+package w3resource.indexInterface.p11;
 
-import main.java.w3resource.indexInterface.p7.Sortable;
+import w3resource.indexInterface.p7.Sortable;
 
 public class MergeSort implements Sortable {
     void merge(int arr[], int l, int m, int r)

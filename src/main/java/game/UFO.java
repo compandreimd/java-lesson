@@ -1,4 +1,4 @@
-package main.java.game;
+package game;
 
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.NotNull;

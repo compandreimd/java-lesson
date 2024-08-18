@@ -1,4 +1,4 @@
-package main.java.vars;
+package vars;
 
 public class DemoVars {
     /**

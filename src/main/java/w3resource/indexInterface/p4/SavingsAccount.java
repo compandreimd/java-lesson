@@ -1,4 +1,4 @@
-package main.java.w3resource.indexInterface.p4;
+package w3resource.indexInterface.p4;
 
 public class SavingsAccount extends Account implements IAccount {
     private double interest = 0.01;

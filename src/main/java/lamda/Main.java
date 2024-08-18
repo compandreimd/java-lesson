@@ -1,4 +1,4 @@
-package main.java.lamda;
+package lamda;
 
 import clazz.Person;
 

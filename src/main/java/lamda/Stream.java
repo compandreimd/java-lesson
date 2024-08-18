@@ -1,4 +1,4 @@
-package main.java.lamda;
+package lamda;
 
 import java.util.ArrayList;
 import java.util.Arrays;

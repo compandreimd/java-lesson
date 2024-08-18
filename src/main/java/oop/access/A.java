@@ -1,4 +1,4 @@
-package main.java.oop.access;
+package oop.access;
 
 public class A
 {

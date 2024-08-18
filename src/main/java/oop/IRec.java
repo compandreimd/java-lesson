@@ -1,4 +1,4 @@
-package main.java.oop;
+package oop;
 
 public interface IRec extends ICalc {
     int message(String str);

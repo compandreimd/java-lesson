@@ -1,4 +1,4 @@
-package main.java.oop;
+package oop;
 
 public class Calc implements ICalc,IRec {
    private void read(){

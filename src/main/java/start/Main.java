@@ -6,16 +6,16 @@ import clazz.DemoEx;
 import clazz.Point;
 import condition.Sw;
 import forloop.ForLoop;
-import main.java.game.UFO;
-import main.java.homework.HW2;
-import main.java.homework.HW3;
-import main.java.homework.HW4;
-import main.java.homework.Student;
-import main.java.method.Mth;
-import main.java.oop.Oop;
+import game.UFO;
+import homework.HW2;
+import homework.HW3;
+import homework.HW4;
+import homework.Student;
+import method.Mth;
+import oop.Oop;
 import org.jetbrains.annotations.NotNull;
-import main.java.sir.SIr;
-import main.java.sir.Sir2D;
+import sir.SIr;
+import sir.Sir2D;
 
 import java.util.*;
 
@@ -84,7 +84,7 @@ public class Main {
             UFO.main(args);
         });
         table.put("graph", () -> {
-            main.java.graph.UFO.main(args);
+            graph.UFO.main(args);
         });
         table.put("homework", () -> {
             Hashtable<String, Runnable> kidTable = new Hashtable();

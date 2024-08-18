@@ -1,6 +1,6 @@
-package main.java.w3resource.indexInterface.p11;
+package w3resource.indexInterface.p11;
 
-import main.java.w3resource.indexInterface.p7.Sortable;
+import w3resource.indexInterface.p7.Sortable;
 
 public class QuickSort implements Sortable {
     private void swap(int[] arr, int i, int j)

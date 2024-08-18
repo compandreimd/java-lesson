@@ -1,4 +1,4 @@
-package main.java.w3resource.indexInterface.p4;
+package w3resource.indexInterface.p4;
 
 public abstract class Account  implements IAccount{
     private double amount;

@@ -1,6 +1,6 @@
-package main.java.oop.access.lvl;
+package oop.access.lvl;
 
-import main.java.oop.access.A;
+import oop.access.A;
 
 public class N {
    public static class NA extends A {

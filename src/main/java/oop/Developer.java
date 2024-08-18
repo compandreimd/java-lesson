@@ -1,4 +1,4 @@
-package main.java.oop;
+package oop;
 
 public class Developer extends Employee {
     public Developer(String name, int age, String address) {

@@ -1,4 +1,4 @@
-package main.java.oop;
+package oop;
 
 import java.util.UUID;
 

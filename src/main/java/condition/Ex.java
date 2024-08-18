@@ -1,6 +1,6 @@
 package condition;
 
-import main.java.homework.HW1;
+import homework.HW1;
 
 import java.util.Scanner;
 

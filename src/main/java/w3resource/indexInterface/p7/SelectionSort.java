@@ -1,4 +1,4 @@
-package main.java.w3resource.indexInterface.p7;
+package w3resource.indexInterface.p7;
 
 public class SelectionSort implements Sortable {
     @Override

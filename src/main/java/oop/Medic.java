@@ -1,4 +1,4 @@
-package main.java.oop;
+package oop;
 
 //inhertance mostinera
 public class Medic extends  LicPerson{

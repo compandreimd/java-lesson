@@ -1,4 +1,4 @@
-package main.java.w3resource.indexInterface.p4;
+package w3resource.indexInterface.p4;
 
 public interface IAccount {
     void withdraw(double amount);
