@@ -1,0 +1,13 @@
+package main.java.oop;
+
+public class Bus implements IVechicle{
+    @Override
+    public String getName() {
+        return "Autobuz";
+    }
+
+    @Override
+    public int getMaxPersons() {
+        return 10;
+    }
+}
