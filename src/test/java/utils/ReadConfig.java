@@ -2,7 +2,6 @@ package utils;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -11,7 +10,7 @@ public class ReadConfig {
     private static ReadConfig instance;
 
     private ReadConfig() {
-        File file = new File("src/main/resources/config.properties");
+        File file = new File("src/test/resources/config.properties");
         try {
             FileInputStream inp = new FileInputStream(file);
             properties = new Properties();

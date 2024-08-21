@@ -1,43 +1,36 @@
 package tests;
 
-import core.BaseClass;
-import org.apache.http.HttpStatus;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.testng.Assert;
+import core.BaseGet;
 import org.testng.annotations.Test;
+import tests.models.RespListUsers;
+import tests.models.RespUsers;
 import utils.ReadConfig;
 import utils.ReadContent;
-
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
+import java.util.HashMap;
 
-public class ListUsers extends BaseClass {
-    ReadContent read = null;
+public class GetUser extends BaseGet<RespUsers> {
+    public GetUser() {
+        super(new RespUsers(), "USER", new HashMap<>() {{
+            put("UserId", "{UserId}");
+        }});
+    }
+
     @Test(priority = -1)
-    public void testListUserRequest() throws IOException {
-        var users = ReadConfig.getInstance().getValue("USERS");
-        var page = ReadConfig.getInstance().getValue("PAGE");
-        users = users.replace("{page}", page);
-        CloseableHttpResponse closeableHttpResponse = getRequest(users);
-        int statusCode = closeableHttpResponse.getStatusLine().getStatusCode();
-        softAssert.assertEquals(statusCode, HttpStatus.SC_OK, "Status Code deferred!");
-        read = new ReadContent(closeableHttpResponse.getEntity().getContent());
-        softAssert.assertAll();
+    public void testUserRequest() throws IOException {
+        request(getSoftAssert()).assertAll("Get User");
+
     }
 
     @Test
-    public void testListUserContent() throws IOException {
-       if(read == null) testListUserRequest();
-       softAssert.assertNotNull(read.getContent(), "Could get Content!");
-       JSONObject obj = read.getObject();
-       softAssert.assertNotNull(obj, "Could get main Object!");
-       var pages = obj.getInt("page");
-       var per_page =obj.getInt("per_page");
-      // var total =
-       softAssert.assertEquals(per_page+"",  ReadConfig.getInstance().getValue("PerPage"));
-       softAssert.assertAll();
+    public void testUserContent() throws IOException {
+        RespListUsers data = new ReadContent(new FileInputStream("src/test/resources/users.json")).as(RespListUsers.class);
+        var id =  Integer.parseInt(ReadConfig.getInstance().getValue("UserId"));
+        var user = data.getData().get(id - 1);
+        var expected = new RespUsers();
+        expected.setSupport(data.getSupport());
+        expected.setData(user);
+        content(getSoftAssert(), expected).assertAll();
     }
-
 }

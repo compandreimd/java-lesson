@@ -1,40 +1,36 @@
 package tests;
 
 import core.BaseClass;
+import core.BaseGet;
+import core.IAssertable;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import tests.models.RespListUsers;
+import tests.models.User;
 import utils.ReadConfig;
 import utils.ReadContent;
 
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
+import java.util.HashMap;
 
-public class ListUsers extends BaseClass {
-    ReadContent read = null;
+public class ListUsers extends BaseGet<RespListUsers>  {
+    public ListUsers() {
+        super(new RespListUsers(),"USERS", new HashMap<>(){{
+            put("Page", "{Page}");
+            put("PerPage", "{PerPage}");
+        }});
+    }
     @Test(priority = -1)
-    public void testListUserRequest() throws IOException {
-        var users = ReadConfig.getInstance().getValue("USERS");
-        var page = ReadConfig.getInstance().getValue("PAGE");
-        users = users.replace("{page}", page);
-        CloseableHttpResponse closeableHttpResponse = getRequest(users);
-        int statusCode = closeableHttpResponse.getStatusLine().getStatusCode();
-        softAssert.assertEquals(statusCode, HttpStatus.SC_OK, "Status Code deferred!");
-        read = new ReadContent(closeableHttpResponse.getEntity().getContent());
-        softAssert.assertAll();
+    public void testListUserRequest() {
+        request(getSoftAssert()).assertAll("ListUsers");
     }
 
     @Test
     public void testListUserContent() throws IOException {
-       if(read == null) testListUserRequest();
-       softAssert.assertNotNull(read.getContent(), "Could get Content!");
-       JSONObject obj = read.getObject();
-       softAssert.assertNotNull(obj, "Could get main Object!");
-       obj.getInt("page");
-       softAssert.assertAll();
+        content(getSoftAssert(), new ReadContent(new FileInputStream("src/test/resources/users.json")).as(RespListUsers.class));
     }
 
 }
