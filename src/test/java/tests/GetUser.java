@@ -1,6 +1,6 @@
 package tests;
 
-import core.BaseGet;
+import core.BaseT;
 import org.testng.annotations.Test;
 import tests.models.RespListUsers;
 import tests.models.RespUsers;
@@ -10,8 +10,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class GetUser extends BaseGet<RespUsers> {
-    public GetUser() {
+public class User extends BaseT<RespUsers, Object> {
+    public User() {
         super(new RespUsers(), "USER", new HashMap<>() {{
             put("UserId", "{UserId}");
         }});

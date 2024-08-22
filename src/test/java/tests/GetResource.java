@@ -1,6 +1,6 @@
 package tests;
 
-import core.BaseGet;
+import core.BaseT;
 import org.testng.annotations.Test;
 import tests.models.RespListResource;
 import tests.models.RespResource;
@@ -11,8 +11,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class GetResource extends BaseGet<RespResource> {
-    public GetResource() {
+public class Resource extends BaseT<RespResource, Object> {
+    public Resource() {
         super(new RespResource(), "RESOURCE", new HashMap<>() {{
             put("ResId", "{ResId}");
         }});
