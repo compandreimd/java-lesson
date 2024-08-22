@@ -14,6 +14,6 @@ public class Support  implements IAssertable<Support> {
     @Override
     public void asseratableEqual(SoftAssert softAssert, Support support) {
         softAssert.assertEquals(url, support.getUrl(), "Support.URL");
-        softAssert.assertEquals(text, support.getUrl(), "Support.Text");
+        softAssert.assertEquals(text, support.getText(), "Support.Text");
     }
 }

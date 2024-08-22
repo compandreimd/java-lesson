@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 import tests.entity.Register;
 import tests.models.RespListUsers;
 import tests.models.RespRegister;
-import tests.models.User;
 import utils.ReadConfig;
 import utils.ReadContent;
 
@@ -15,12 +14,12 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Random;
 
-public class RegisterSuccess extends BaseT<RespRegister, Register> {
-   public RegisterSuccess() {
-        super(RequestType.Post, new RespRegister(), "REGISTER", new HashMap<>());
+public class LoginSuccess extends BaseT<RespRegister, Register> {
+   public LoginSuccess() {
+        super(RequestType.Post, new RespRegister(), "LOGIN", new HashMap<>());
     }
     @Test(priority = 1)
-    public void testSucessReg() throws FileNotFoundException {
+    public void testLogin() throws FileNotFoundException {
         Random rn = new Random();
         var users = new ReadContent(new FileInputStream("src/test/resources/users.json")).as(RespListUsers.class).getData();
         var config = ReadConfig.getInstance();

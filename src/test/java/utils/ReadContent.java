@@ -56,9 +56,7 @@ public class ReadContent {
             T t = mapper.readValue(content, clazz);
             return t;
         } catch (JsonProcessingException e) {
-            if (softAssert != null)
-                softAssert.assertNotNull(e);
-            return null;
+            throw new RuntimeException(e);
         }
     }
 }

@@ -4,23 +4,16 @@ import core.IAssertable;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.testng.asserts.SoftAssert;
-import utils.ReadConfig;
-
-import java.util.List;
 
 @Data
 @NoArgsConstructor
-public class RespCreateUser implements IAssertable<RespCreateUser> {
+public class RespUpdateUser implements IAssertable<RespUpdateUser> {
     private String name;
     private String job;
-    private String id;
-    private String createdAt;
+    private String updatedAt;
     @Override
-    public void asseratableEqual(SoftAssert softAssert, RespCreateUser resp) {
+    public void asseratableEqual(SoftAssert softAssert, RespUpdateUser resp) {
         softAssert.assertEquals(name, resp.getName(), "Name");
         softAssert.assertEquals(job, resp.getJob(), "Job");
-
-
-
     }
 }

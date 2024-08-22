@@ -1,22 +1,15 @@
 package tests;
 
-import core.BaseClass;
-import core.BaseGet;
-import core.IAssertable;
-import org.apache.http.HttpStatus;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.testng.Assert;
+import core.BaseT;
 import org.testng.annotations.Test;
 import tests.models.RespListUsers;
-import tests.models.User;
-import utils.ReadConfig;
 import utils.ReadContent;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class ListUsers extends BaseGet<RespListUsers>  {
+public class ListUsers extends BaseT<RespListUsers, Object> {
     public ListUsers() {
         super(new RespListUsers(),"USERS", new HashMap<>(){{
             put("Page", "{Page}");

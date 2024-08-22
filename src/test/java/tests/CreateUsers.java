@@ -14,12 +14,12 @@ public class CreateUsers extends BaseT<RespCreateUser, User> {
     public CreateUsers() {
         super(RequestType.Post,new RespCreateUser(),"CREATE", new HashMap<>());
         var config = ReadConfig.getInstance();
-        body = User.builder().name(config.getValue("ConfigName")).job(config.getValue("ConfigJob")).build();
+        body = User.builder().name(config.getValue("CreateName")).job(config.getValue("CreateJob")).build();
         status = HttpStatus.SC_CREATED;
     }
     @Test(priority = -1)
     public void testCreateUserRequest() {
-        requestJSON(getSoftAssert()).assertAll("ListUsers");
+        requestJSON(getSoftAssert()).assertAll("CreateUsers");
     }
 
     @Test

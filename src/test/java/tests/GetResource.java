@@ -11,8 +11,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class Resource extends BaseT<RespResource, Object> {
-    public Resource() {
+public class GetResource extends BaseT<RespResource, Object> {
+    public GetResource() {
         super(new RespResource(), "RESOURCE", new HashMap<>() {{
             put("ResId", "{ResId}");
         }});

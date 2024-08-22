@@ -5,26 +5,29 @@ import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
 import tests.entity.User;
 import tests.models.RespCreateUser;
+import tests.models.RespUpdateUser;
 import utils.ReadConfig;
 
 import java.io.IOException;
 import java.util.HashMap;
 
-public class CreateUsers extends BaseT<RespCreateUser, User> {
-    public CreateUsers() {
-        super(RequestType.Post,new RespCreateUser(),"CREATE", new HashMap<>());
+public class PutUsers extends BaseT<RespUpdateUser, User> {
+    public PutUsers() {
+        super(RequestType.Put,new RespUpdateUser(),"PUT",  new HashMap<>() {{
+            put("PutId", "{UserId}");
+        }});
         var config = ReadConfig.getInstance();
-        body = User.builder().name(config.getValue("ConfigName")).job(config.getValue("ConfigJob")).build();
-        status = HttpStatus.SC_CREATED;
+        body = User.builder().name(config.getValue("PutName")).job(config.getValue("PutJob")).build();
+        status = HttpStatus.SC_OK;
     }
     @Test(priority = -1)
-    public void testCreateUserRequest() {
-        requestJSON(getSoftAssert()).assertAll("ListUsers");
+    public void testPutUserRequest() {
+        requestJSON(getSoftAssert()).assertAll("PutUsers");
     }
 
     @Test
-    public void testCreateUserContent() throws IOException {
-        var expected = new RespCreateUser();
+    public void testPutUserContent() throws IOException {
+        var expected = new RespUpdateUser();
         expected.setName(body.getName());
         expected.setJob(body.getJob());
         content(getSoftAssert(), expected).assertAll();

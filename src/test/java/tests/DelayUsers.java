@@ -1,6 +1,6 @@
 package tests;
 
-import core.BaseGet;
+import core.BaseT;
 import org.testng.annotations.Test;
 import tests.models.RespListUsers;
 import utils.ReadContent;
@@ -9,7 +9,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class DelayUsers extends BaseGet<RespListUsers> {
+public class DelayUsers extends BaseT<RespListUsers, Object> {
     public DelayUsers() {
         super(new RespListUsers(), "DELAY", new HashMap<>() {{
             put("Page", "{Page}");
@@ -20,7 +20,7 @@ public class DelayUsers extends BaseGet<RespListUsers> {
 
     @Test(priority = -1)
     public void testListResourceRequest() {
-        request(getSoftAssert()).assertAll("ListUsers");
+        request(getSoftAssert()).assertAll("DelayUsers");
     }
 
     @Test

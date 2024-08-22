@@ -5,31 +5,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.testng.asserts.SoftAssert;
 import utils.ReadConfig;
+
 import java.util.List;
 
 @Data
 @NoArgsConstructor
-public class RespListUsers implements IAssertable<RespListUsers> {
-    private int page;
-    private int per_page;
-    private int total;
-    private int total_pages;
-    private List<User> data;
-    private Support support;
-
+public class RespCreateUser implements IAssertable<RespCreateUser> {
+    private String name;
+    private String job;
+    private String id;
+    private String createdAt;
     @Override
-    public void asseratableEqual(SoftAssert softAssert, RespListUsers resp) {
-        var page = ReadConfig.getInstance().getValue("Page");
-        softAssert.assertEquals(per_page + "", ReadConfig.getInstance().getValue("PerPage"), "PerPaga");
-        softAssert.assertEquals(this.page + "", page, "Page");
-        softAssert.assertEquals(this.total_pages, (resp.getTotal() / resp.getPer_page() + (resp.getTotal() % resp.getPer_page() == 0 ? 0 : 1)), "TotalPage");
-        softAssert.assertEquals(this.total, resp.getTotal(), "Total");
-        List<User> data = resp.getData().stream().toList();
-        data.forEach(n -> {
-            var exp = resp.getData().stream().filter(e -> e.getId() == n.getId()).findFirst().get();
-            n.asseratableEqual(softAssert, exp);
-        });
-        support.asseratableEqual(softAssert, resp.getSupport());
+    public void asseratableEqual(SoftAssert softAssert, RespCreateUser resp) {
+        softAssert.assertEquals(name, resp.getName(), "Name");
+        softAssert.assertEquals(job, resp.getJob(), "Job");
+
 
 
     }

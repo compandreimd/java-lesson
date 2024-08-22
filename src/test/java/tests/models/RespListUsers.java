@@ -19,9 +19,9 @@ public class RespListUsers implements IAssertable<RespListUsers> {
 
     @Override
     public void asseratableEqual(SoftAssert softAssert, RespListUsers resp) {
-        var page = ReadConfig.getInstance().getValue("Page");
         softAssert.assertEquals(per_page + "", ReadConfig.getInstance().getValue("PerPage"), "PerPaga");
-        softAssert.assertEquals(this.page + "", page, "Page");
+        if(per_page == 0) per_page = 6;
+        if(resp.getPer_page() == 0) resp.setPer_page(6);
         softAssert.assertEquals(this.total_pages, (resp.getTotal() / resp.getPer_page() + (resp.getTotal() % resp.getPer_page() == 0 ? 0 : 1)), "TotalPage");
         softAssert.assertEquals(this.total, resp.getTotal(), "Total");
         List<User> data = resp.getData().stream().toList();

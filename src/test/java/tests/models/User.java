@@ -18,8 +18,8 @@ public class User implements IAssertable<User> {
     public void asseratableEqual(SoftAssert softAssert, User user) {
         softAssert.assertEquals(id, user.getId(), "User.Id");
         softAssert.assertEquals(email, user.getEmail(), "User.Email");
-        softAssert.assertEquals(first_name, user.getEmail(), "User.FirstNAME");
-        softAssert.assertEquals(last_name, user.getEmail(), "User.LastName");
-        softAssert.assertEquals(avatar, user.getEmail(), "User.Avatar");
+        softAssert.assertEquals(first_name, user.getFirst_name(), "User.FirstNAME");
+        softAssert.assertEquals(last_name, user.getLast_name(), "User.LastName");
+        softAssert.assertEquals(avatar, user.getAvatar(), "User.Avatar");
     }
 }

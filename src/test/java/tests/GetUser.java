@@ -10,8 +10,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class User extends BaseT<RespUsers, Object> {
-    public User() {
+public class GetUser extends BaseT<RespUsers, Object> {
+    public GetUser() {
         super(new RespUsers(), "USER", new HashMap<>() {{
             put("UserId", "{UserId}");
         }});

@@ -10,15 +10,21 @@ import utils.ReadContent;
 import java.io.IOException;
 import java.util.Map;
 
-public class BaseGet<T extends IAssertable<T>> extends BaseClass{
-    private T instance;
-    private String key;
-    private Map<String, String> replacer;
+public class BaseT<R extends IAssertable<R>,B> extends BaseClass{
+    private final R instance;
+    protected B body = null;
+    private final String key;
+    private final Map<String, String> replacer;
+    private final RequestType type;
     protected int status = HttpStatus.SC_OK;
-    public BaseGet(T instance, String key, Map<String, String> replacer) {
+    public BaseT(R instance, String key, Map<String, String> replacer) {
+        this(RequestType.Get, instance, key, replacer);
+    }
+    public BaseT(RequestType type, R instance, String key, Map<String, String> replacer) {
         this.instance = instance;
         this.key = key;
         this.replacer = replacer;
+        this.type = type;
     }
     public SoftAssert request(SoftAssert softAssert)  {
         String uri = ReadConfig.getInstance().getValue(key);
@@ -27,30 +33,50 @@ public class BaseGet<T extends IAssertable<T>> extends BaseClass{
         }
         CloseableHttpResponse closeableHttpResponse = null;
         try {
-            closeableHttpResponse = getRequest(RequestType.Get, uri);
+            closeableHttpResponse = getRequest(type, uri);
             int statusCode = closeableHttpResponse.getStatusLine().getStatusCode();
             softAssert.assertEquals(statusCode, status, "Status Code deferred!");
-            read = new ReadContent(closeableHttpResponse.getEntity().getContent());
+            if(statusCode != HttpStatus.SC_NO_CONTENT) {
+                read = new ReadContent(closeableHttpResponse.getEntity().getContent());
+            }
             softAssert.assertAll();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         return softAssert;
     }
-
-    public T content(SoftAssert softAssert){
+    public SoftAssert requestJSON(SoftAssert softAssert){
+        Assert.assertNotNull(body, "Set Body");
+        String uri = ReadConfig.getInstance().getValue(key);
+        for (Map.Entry<String, String> entry: replacer.entrySet()) {
+            uri = uri.replace(entry.getValue(), ReadConfig.getInstance().getValue(entry.getKey()));
+        }
+        CloseableHttpResponse closeableHttpResponse = null;
+        try {
+            closeableHttpResponse = getRequestJSON(type, uri, body);
+            int statusCode = closeableHttpResponse.getStatusLine().getStatusCode();
+            softAssert.assertEquals(statusCode, status, "Status Code deferred!");
+            if(statusCode != HttpStatus.SC_NO_CONTENT) {
+                read = new ReadContent(closeableHttpResponse.getEntity().getContent());
+            }
+            softAssert.assertAll();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return softAssert;
+    }
+    public R content(SoftAssert softAssert){
         if(read == null) request(softAssert);
-        T resp = read.as((Class<T>)instance.getClass());
+        R resp = read.as((Class<R>)instance.getClass());
         return resp;
     }
-
-    public SoftAssert content(SoftAssert softAssert, T t){
+    public SoftAssert content(SoftAssert softAssert, R expected){
         if(read == null) request(softAssert);
-        T resp = content(softAssert);
+        R resp = content(softAssert);
         Assert.assertNotNull(resp, "Could get main Object!");
-        softAssert.assertEquals(resp, t);
+        resp.asseratableEqual(softAssert, expected);
         return  softAssert;
     }
 
-
 }
+

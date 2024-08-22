@@ -4,29 +4,36 @@ import core.BaseT;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
 import tests.entity.Register;
+import tests.models.RespError;
 import tests.models.RespListUsers;
-import tests.models.RespRegister;
-import tests.models.User;
+import tests.models.RespUpdateUser;
 import utils.ReadConfig;
 import utils.ReadContent;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Random;
 
-public class RegisterSuccess extends BaseT<RespRegister, Register> {
-   public RegisterSuccess() {
-        super(RequestType.Post, new RespRegister(), "REGISTER", new HashMap<>());
+public class RegisterUnSuccess extends BaseT<RespError, Register> {
+   public RegisterUnSuccess() throws FileNotFoundException {
+        super(RequestType.Post, new RespError(), "REGISTER", new HashMap<>());
+       Random rn = new Random();
+       var users = new ReadContent(new FileInputStream("src/test/resources/users.json")).as(RespListUsers.class).getData();
+       body = Register.builder().email(users.get(rn.nextInt(users.size())).getEmail()).build();
+       status = HttpStatus.SC_BAD_REQUEST;
     }
     @Test(priority = 1)
-    public void testSucessReg() throws FileNotFoundException {
-        Random rn = new Random();
-        var users = new ReadContent(new FileInputStream("src/test/resources/users.json")).as(RespListUsers.class).getData();
-        var config = ReadConfig.getInstance();
-
-        body = Register.builder().email(users.get(rn.nextInt(users.size())).getEmail()).password(config.getValue("Password")).build();
-        status = HttpStatus.SC_OK;
+    public void testUnSuccessReg()  {
         requestJSON(getSoftAssert()).assertAll("Register User");
+    }
+
+
+    @Test
+    public void testUnSuccessRegContent() throws IOException {
+        var expected = new RespError();
+        expected.setError("Missing email or username");
+        content(getSoftAssert(), expected).assertAll();
     }
 }

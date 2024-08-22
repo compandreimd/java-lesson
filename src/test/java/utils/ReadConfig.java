@@ -22,7 +22,10 @@ public class ReadConfig {
 
 
     public String getValue(String key){
-        return properties.getProperty(key);
+        var resp =  properties.getProperty(key);
+        if(resp != null)
+            return resp.replace("{rnd}", Math.random()+"");
+        return resp;
     }
 
 

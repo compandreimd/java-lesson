@@ -10,22 +10,22 @@ import utils.ReadConfig;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class UpdateUsers extends BaseT<RespUpdateUser, User> {
-    public UpdateUsers() {
-        super(RequestType.Put,new RespUpdateUser(),"PUT",  new HashMap<>() {{
-            put("PutId", "{UserId}");
+public class PatchUsers extends BaseT<RespUpdateUser, User> {
+    public PatchUsers() {
+        super(RequestType.Patch,new RespUpdateUser(),"PATCH",  new HashMap<>() {{
+            put("PatchId", "{UserId}");
         }});
         var config = ReadConfig.getInstance();
-        body = User.builder().name(config.getValue("PutName")).job(config.getValue("PutJob")).build();
+        body = User.builder().name(config.getValue("PatchName")).job(config.getValue("PatchJob")).build();
         status = HttpStatus.SC_OK;
     }
     @Test(priority = -1)
-    public void testPutUserRequest() {
-        requestJSON(getSoftAssert()).assertAll("PutUsers");
+    public void testPatchUserRequest() {
+        requestJSON(getSoftAssert()).assertAll("PatchUsers");
     }
 
     @Test
-    public void testPutUserContent() throws IOException {
+    public void testPatchUserContent() throws IOException {
         var expected = new RespUpdateUser();
         expected.setName(body.getName());
         expected.setJob(body.getJob());

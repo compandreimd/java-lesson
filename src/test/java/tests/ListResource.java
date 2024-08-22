@@ -1,6 +1,6 @@
 package tests;
 
-import core.BaseGet;
+import core.BaseT;
 import org.testng.annotations.Test;
 import tests.models.RespListResource;
 import utils.ReadContent;
@@ -8,7 +8,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class ListResource extends BaseGet<RespListResource>  {
+public class ListResource extends BaseT<RespListResource, Object> {
     public ListResource() {
         super(new RespListResource(),"RESOURCES", new HashMap<>(){{
             put("Page", "{Page}");

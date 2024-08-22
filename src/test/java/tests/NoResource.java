@@ -1,15 +1,14 @@
 package tests;
 
-import core.BaseGet;
+import core.BaseT;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
 import tests.models.RespResource;
-import tests.models.RespUsers;
 
 import java.io.IOException;
 import java.util.HashMap;
 
-public class NoResource extends BaseGet {
+public class NoResource extends BaseT {
 
     public NoResource(){
         super(new RespResource(), "RESOURCE", new HashMap<>() {{
@@ -19,7 +18,7 @@ public class NoResource extends BaseGet {
     }
     @Test(priority = -1)
     public void testResourceRequest() throws IOException {
-        request(getSoftAssert()).assertAll("No user");
+        request(getSoftAssert()).assertAll("No resource");
     }
 
 }
