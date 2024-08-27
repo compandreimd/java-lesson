@@ -1,4 +1,4 @@
-package tests.models;
+package tests.api.models;
 
 
 import core.IAssertable;

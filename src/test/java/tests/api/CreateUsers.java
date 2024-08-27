@@ -1,10 +1,10 @@
-package tests;
+package tests.api;
 
 import core.BaseT;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
-import tests.entity.User;
-import tests.models.RespCreateUser;
+import tests.api.entity.User;
+import tests.api.models.RespCreateUser;
 import utils.ReadConfig;
 
 import java.io.IOException;

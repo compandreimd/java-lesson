@@ -1,9 +1,9 @@
-package tests;
+package tests.api;
 
 import core.BaseT;
 import org.testng.annotations.Test;
-import tests.models.RespListResource;
-import tests.models.RespResource;
+import tests.api.models.RespListResource;
+import tests.api.models.RespResource;
 import utils.ReadConfig;
 import utils.ReadContent;
 

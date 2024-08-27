@@ -1,4 +1,4 @@
-package tests.entity;
+package tests.api.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class User {
-    private String name;
-    private String job;
+public class Register {
+    private String email;
+    private String password;
 }

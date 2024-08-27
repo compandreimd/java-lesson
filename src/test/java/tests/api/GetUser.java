@@ -1,9 +1,9 @@
-package tests;
+package tests.api;
 
 import core.BaseT;
 import org.testng.annotations.Test;
-import tests.models.RespListUsers;
-import tests.models.RespUsers;
+import tests.api.models.RespListUsers;
+import tests.api.models.RespUsers;
 import utils.ReadConfig;
 import utils.ReadContent;
 import java.io.FileInputStream;

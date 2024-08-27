@@ -1,9 +1,9 @@
-package tests;
+package tests.api;
 
 import core.BaseT;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
-import tests.models.RespResource;
+import tests.api.models.RespResource;
 
 import java.io.IOException;
 import java.util.HashMap;

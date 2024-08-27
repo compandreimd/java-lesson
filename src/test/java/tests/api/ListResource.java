@@ -1,8 +1,8 @@
-package tests;
+package tests.api;
 
 import core.BaseT;
 import org.testng.annotations.Test;
-import tests.models.RespListResource;
+import tests.api.models.RespListResource;
 import utils.ReadContent;
 import java.io.FileInputStream;
 import java.io.IOException;

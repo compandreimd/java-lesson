@@ -1,22 +1,24 @@
-package tests;
+package tests.api;
 
 import core.BaseT;
+import org.apache.http.HttpRequest;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
-import tests.models.RespUsers;
+import tests.api.models.RespUsers;
+
 import java.io.IOException;
 import java.util.HashMap;
 
-public class NoUsers extends BaseT {
+public class RemoveUsers extends BaseT {
 
-    public NoUsers() {
-        super(
+    public RemoveUsers() {
+        super(RequestType.Delete,
                 new RespUsers(),
-                "USER",
+                "DELETE",
                 new HashMap<>() {{
-                    put("NotUserId", "{UserId}");
+                    put("DeleteId", "{UserId}");
                 }});
-        status = HttpStatus.SC_NOT_FOUND;
+        status = HttpStatus.SC_NO_CONTENT;
     }
 
     @Test(priority = -1)
