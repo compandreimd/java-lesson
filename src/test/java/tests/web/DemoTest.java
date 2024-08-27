@@ -1,15 +1,18 @@
 package tests.web;
 
-import core.web.Base;
+import core.web.BaseClass;
 import org.testng.annotations.Test;
+import utils.ReadConfig;
 
-public class DemoTest extends Base {
+public class DemoTest extends BaseClass {
     @Test
-    public void demoTest(){
-        System.out.println("Prima");
+    public void setupDriver(){
+
     }
+
     @Test
-    public void demoTest2(){
-        System.out.println("Prima2");
+    public void openWeb(){
+        driver.get(ReadConfig.getInstance().getValue("URL"));
     }
+
 }
