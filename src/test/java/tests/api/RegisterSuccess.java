@@ -1,12 +1,11 @@
 package tests.api;
 
-import core.BaseT;
+import core.api.BaseT;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
 import tests.api.entity.Register;
 import tests.api.models.RespListUsers;
 import tests.api.models.RespRegister;
-import tests.api.models.User;
 import utils.ReadConfig;
 import utils.ReadContent;
 

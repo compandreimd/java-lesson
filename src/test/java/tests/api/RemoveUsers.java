@@ -1,7 +1,6 @@
 package tests.api;
 
-import core.BaseT;
-import org.apache.http.HttpRequest;
+import core.api.BaseT;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
 import tests.api.models.RespUsers;

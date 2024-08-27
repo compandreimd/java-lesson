@@ -1,4 +1,4 @@
-package core;
+package core.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.NonNull;

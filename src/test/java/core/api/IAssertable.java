@@ -1,4 +1,4 @@
-package core;
+package core.api;
 
 import org.testng.asserts.SoftAssert;
 

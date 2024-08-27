@@ -1,6 +1,6 @@
 package tests.api.models;
 
-import core.IAssertable;
+import core.api.IAssertable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

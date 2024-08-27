@@ -1,10 +1,9 @@
 package tests.api;
 
-import core.BaseT;
+import core.api.BaseT;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
 import tests.api.entity.User;
-import tests.api.models.RespCreateUser;
 import tests.api.models.RespUpdateUser;
 import utils.ReadConfig;
 

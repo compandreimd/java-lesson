@@ -1,4 +1,4 @@
-package core;
+package core.api;
 
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;

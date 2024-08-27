@@ -1,12 +1,9 @@
 package tests.api.models;
 
-import core.IAssertable;
+import core.api.IAssertable;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.testng.asserts.SoftAssert;
-import utils.ReadConfig;
-
-import java.util.List;
 
 @Data
 @NoArgsConstructor

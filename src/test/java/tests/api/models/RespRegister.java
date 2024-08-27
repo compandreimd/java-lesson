@@ -1,9 +1,7 @@
 package tests.api.models;
 
 
-import core.IAssertable;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import core.api.IAssertable;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.testng.asserts.SoftAssert;

@@ -1,6 +1,6 @@
 package tests.api;
 
-import core.BaseT;
+import core.api.BaseT;
 import org.testng.annotations.Test;
 import tests.api.models.RespListResource;
 import tests.api.models.RespResource;
