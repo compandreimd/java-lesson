@@ -4,11 +4,8 @@
 
     <test name="Demo">
         <classes>
-            <class name="tests.web.DemoTest">
-                <methods>
-                    <exclude name="setupDriver"/>
-                </methods>
-            </class>
+            <class name="tests.web.DemoTest"/>
+            <class name="tests.web.FormsTest"/>
         </classes>
 <!--        &lt;!&ndash; <parameter name="Demo" value="1"/> &ndash;&gt;-->
 <!--        <classes>-->
