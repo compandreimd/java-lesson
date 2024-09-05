@@ -90,7 +90,7 @@ public class TextBoxPagePOM {
 
     public boolean hasAddress(){
         try {
-            return  checkEmail.isDisplayed();
+            return  checkCurrentAddress.isDisplayed();
         }
         catch (Exception ex){
             return  false;
@@ -99,7 +99,7 @@ public class TextBoxPagePOM {
 
     public boolean hasPermanent(){
         try {
-            return  checkEmail.isDisplayed();
+            return  checkPermanentAddress.isDisplayed();
         }
         catch (Exception ex){
             return  false;
