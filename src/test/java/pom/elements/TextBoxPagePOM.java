@@ -1,4 +1,4 @@
-package pom;
+package pom.elements;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;

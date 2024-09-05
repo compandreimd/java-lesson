@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Testing Google Apps">
-
-    <test name="Demo">
+    <test name="Current">
         <classes>
-            <class name="tests.web.DemoTest"/>
-            <class name="tests.web.FormsTest"/>
+            <class name="tests.web.elements.TextBoxTests"/>
         </classes>
+    </test>
+    <test name="Demo">
+<!--        <classes>-->
+<!--            <class name="tests.web.elements.TextBoxTests"/>-->
+<!--            <class name="tests.web.FormsTest"/>-->
+<!--        </classes>-->
 <!--        &lt;!&ndash; <parameter name="Demo" value="1"/> &ndash;&gt;-->
 <!--        <classes>-->
-<!--            <class name="tests.web.DemoTest"/>-->
+<!--            <class name="tests.web.elements.TextBoxTests"/>-->
 <!--            <class name="tests.web.DemoTest2"/>-->
 <!--        </classes>-->
 <!--    </test> &lt;!&ndash; Test &ndash;&gt;-->
@@ -17,9 +21,9 @@
 <!--        &lt;!&ndash; <parameter name="Demo" value="1"/> &ndash;&gt;-->
 <!--        <classes>-->
 <!--            <class name="tests.web.DemoTest2"/>-->
-<!--            <class name="tests.web.DemoTest"/>-->
+<!--            <class name="tests.web.elements.TextBoxTests"/>-->
 <!--            <class name="tests.web.DemoTest2"/>-->
-<!--            <class name="tests.web.DemoTest"/>-->
+<!--            <class name="tests.web.elements.TextBoxTests"/>-->
 <!--        </classes>-->
     </test> <!-- Test -->
 </suite> <!-- Suite -->
