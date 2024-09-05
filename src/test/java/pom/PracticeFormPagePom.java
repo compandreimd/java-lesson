@@ -1,14 +1,13 @@
 package pom;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 
-public class PracticeFormPagePom {
+public class PracticeFormPagePom extends APom{
 
-    ChromeDriver driver;
 
-    public PracticeFormPagePom(ChromeDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+    public PracticeFormPagePom(WebDriver driver) {
+        super(driver);
     }
 }

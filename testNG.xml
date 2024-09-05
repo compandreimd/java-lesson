@@ -4,6 +4,7 @@
     <test name="Current">
         <classes>
             <class name="tests.web.elements.TextBoxTests"/>
+            <class name="tests.web.elements.CheckBoxTests"/>
         </classes>
     </test>
     <test name="Demo">

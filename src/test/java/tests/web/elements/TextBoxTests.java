@@ -18,7 +18,7 @@ public class TextBoxTests extends BaseClass {
     String pAddrs = "p" + Math.random();
     @BeforeMethod
     public void createObject(){
-        executor = driver;
+        executor = (JavascriptExecutor) driver;
         driver.get(ReadConfig.getInstance().getValue("URL"));
         startPagePOM = new StartPagePOM(driver);
         textBoxPagePOM = startPagePOM.clickElements().clickTextBox();

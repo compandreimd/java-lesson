@@ -1,17 +1,17 @@
 package pom.elements;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pom.APom;
 
 
-public class TextBoxPagePOM {
-    ChromeDriver driver;
+public class TextBoxPagePOM extends APom {
 
-    public TextBoxPagePOM(ChromeDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+    public TextBoxPagePOM(WebDriver driver) {
+        super(driver);
     }
 
     @FindBy(xpath = "//input[@id='userName']")

@@ -14,7 +14,7 @@ public class FormsTest extends BaseClass {
 
     @Test
     public void clickPracticeForm() throws InterruptedException {
-        JavascriptExecutor executor = driver;
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
         driver.get(ReadConfig.getInstance().getValue("URL"));
         StartPagePOM startPagePOM = new StartPagePOM(driver);
         PracticeFormPagePom pagePom = startPagePOM.clickForms().clickPracticeForm();

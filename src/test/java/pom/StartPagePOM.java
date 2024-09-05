@@ -1,15 +1,15 @@
 package pom;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class StartPagePOM {
-    ChromeDriver driver;
-    public StartPagePOM(ChromeDriver driver){
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+public class StartPagePOM extends APom {
+    public StartPagePOM(WebDriver driver){
+        super(driver);
     }
 
     @FindBy(xpath = "//h5[text()='Elements']")
@@ -20,6 +20,7 @@ public class StartPagePOM {
 
     public ElementsPagePOM clickElements(){
         elements.click();
+        waiter.until(d -> d.findElements(new By.ByTagName("body")));
         return  new ElementsPagePOM(driver);
     }
 
