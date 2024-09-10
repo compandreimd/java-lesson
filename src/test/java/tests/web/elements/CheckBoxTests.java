@@ -1,5 +1,6 @@
 package tests.web.elements;
 
+import condition.Ex;
 import core.web.BaseClass;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.AfterMethod;
@@ -414,5 +415,15 @@ public class CheckBoxTests extends BaseClass
                 softAssert.assertEquals(checkBoxPagePOM.hasResult(it), false, it.toString());
         });
         softAssert.assertAll();
+        checkBoxPagePOM.openElement(Documents);
+        softAssert.assertEquals(checkBoxPagePOM.getCheckStatus(Workspace), STATUS_NOTFOUND);
+        softAssert.assertEquals(checkBoxPagePOM.getCheckStatus(Office), STATUS_NOTFOUND);
+        checkBoxPagePOM.openElement(Desktop);
+        softAssert.assertEquals(checkBoxPagePOM.getCheckStatus(Notes), STATUS_NOTFOUND);
+        softAssert.assertEquals(checkBoxPagePOM.getCheckStatus(Commands), STATUS_NOTFOUND);
+        checkBoxPagePOM.openElement(Downloads);
+        softAssert.assertEquals(checkBoxPagePOM.getCheckStatus(WordFile), STATUS_NOTFOUND);
+        softAssert.assertEquals(checkBoxPagePOM.getCheckStatus(ExcelFile), STATUS_NOTFOUND);
+        checkBoxPagePOM.openElement(Home);
     }
 }

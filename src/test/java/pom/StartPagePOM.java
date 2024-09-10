@@ -18,6 +18,9 @@ public class StartPagePOM extends APom {
     @FindBy(xpath = "//h5[text()='Forms']")
     public WebElement forms;
 
+    @FindBy(xpath = "//h5[text()='Alerts, Frame & Windows']")
+    public WebElement alerts;
+
     public ElementsPagePOM clickElements(){
         elements.click();
         waiter.until(d -> d.findElements(new By.ByTagName("body")));
@@ -25,8 +28,15 @@ public class StartPagePOM extends APom {
     }
 
     public FormsPagePOM clickForms(){
+        goToElement(forms);
         forms.click();
         return  new FormsPagePOM(driver);
+    }
+
+    public AlertsPagePOM clickAlerts(){
+        goToElement(alerts);
+        alerts.click();
+        return  new AlertsPagePOM(driver);
     }
 
 }

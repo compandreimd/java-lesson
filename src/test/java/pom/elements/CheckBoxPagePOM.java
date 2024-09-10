@@ -45,11 +45,16 @@ public class CheckBoxPagePOM extends APom {
         return driver.findElement(By.xpath(getXPath(element)+"//*[@class='rct-icon rct-icon-check']"));
     }
 
+
     public void clickElement(CheckBoxElements element){
-        getLabel(element).click();
+        WebElement web = getLabel(element);
+        goToElement(web);
+        web.click();
     }
     public void openElement(CheckBoxElements element){
-        getButton(element).click();
+        WebElement web = getButton(element);
+        goToElement(web);
+        web.click();
     }
 
     public boolean hasIconUnCheck(CheckBoxElements element){

@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pom.elements.CheckBoxPagePOM;
+import pom.elements.RadioBoxPagePOM;
 import pom.elements.TextBoxPagePOM;
 
 
@@ -22,6 +23,9 @@ public class ElementsPagePOM extends APom {
     @FindBy(xpath = "//span[text()='Check Box']")
     public WebElement checkBox;
 
+    @FindBy(xpath = "//span[text()='Radio Button']")
+    public WebElement radioButton;
+
     public TextBoxPagePOM clickTextBox(){
         textBox.click();
         waiter.until(d -> d.findElements(new By.ByTagName("body")));
@@ -34,5 +38,10 @@ public class ElementsPagePOM extends APom {
         return  new CheckBoxPagePOM(driver);
     }
 
+    public RadioBoxPagePOM clickRadioButton(){
+        radioButton.click();
+        waiter.until(d -> d.findElements(new By.ByTagName("body")));
+        return  new RadioBoxPagePOM(driver);
+    }
 
 }
