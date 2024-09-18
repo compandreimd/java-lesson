@@ -1,6 +1,6 @@
-package pom.elements;
+package data.enums;
 
-public enum CheckBoxElements {
+public enum ECheckBoxElements {
     Home,
     Desktop,
     Notes,
@@ -41,7 +41,7 @@ public enum CheckBoxElements {
                     case ExcelFile -> "excelFile";
                 };
     }
-    public static final CheckBoxElements[] ALL = new CheckBoxElements[]{
+    public static final ECheckBoxElements[] ALL = new ECheckBoxElements[]{
             Home,
             Desktop,
             Notes,
@@ -60,12 +60,12 @@ public enum CheckBoxElements {
             WordFile,
             ExcelFile
     };
-    public static final CheckBoxElements[] DESKTOP = new CheckBoxElements[]{
+    public static final ECheckBoxElements[] DESKTOP = new ECheckBoxElements[]{
             Desktop,
             Notes,
             Commands,
     };
-    public static final CheckBoxElements[] DOCUMENTS = new CheckBoxElements[]{
+    public static final ECheckBoxElements[] DOCUMENTS = new ECheckBoxElements[]{
             Documents,
             Workspace,
             React,
@@ -77,20 +77,20 @@ public enum CheckBoxElements {
             Classified,
             General
     };
-    public static final CheckBoxElements[] WORKSPACE = new CheckBoxElements[]{
+    public static final ECheckBoxElements[] WORKSPACE = new ECheckBoxElements[]{
             Workspace,
             React,
             Angular,
             Veu
     };
-    public static final CheckBoxElements[] OFFICE = new CheckBoxElements[]{
+    public static final ECheckBoxElements[] OFFICE = new ECheckBoxElements[]{
             Office,
             Public,
             Private,
             Classified,
             General
     };
-    public static final CheckBoxElements[] DOWNLOAD = new CheckBoxElements[]{
+    public static final ECheckBoxElements[] DOWNLOAD = new ECheckBoxElements[]{
             Downloads,
             WordFile,
             ExcelFile

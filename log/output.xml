@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.9.6 on darwin)" generated="2024-09-17T08:20:03.520205" rpa="false" schemaversion="5">
+<suite id="s1" name="Test case 1" source="/Users/compandreimd/java-lesson/src/test/java/robotframework/acceptance/Test_case_1.robot">
+<test id="s1-t1" name="TC_001 Browser Start and Close" line="11">
+<kw name="Open Browser">
+<msg time="2024-09-17T08:20:03.541178" level="FAIL">No keyword with name 'Open Browser' found.</msg>
+<arg>${URL}</arg>
+<arg>${Browser}</arg>
+<status status="FAIL" start="2024-09-17T08:20:03.541037" elapsed="0.000254">No keyword with name 'Open Browser' found.</status>
+</kw>
+<status status="FAIL" start="2024-09-17T08:20:03.539748" elapsed="0.001719">No keyword with name 'Open Browser' found.</status>
+</test>
+<doc>Open Test Case.</doc>
+<status status="FAIL" start="2024-09-17T08:20:03.521574" elapsed="0.020476"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Test case 1">Test case 1</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-09-17T08:20:03.537956" level="ERROR">Error in file '/Users/compandreimd/java-lesson/src/test/java/robotframework/acceptance/Test_case_1.robot' on line 2: Importing library 'Selenium2Library' failed: ModuleNotFoundError: No module named 'Selenium2Library'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /Users/compandreimd/Library/Application Support/JetBrains/IntelliJIdea2022.1/plugins/robotframework-intellij/lib/robotframework_debug_adapter
+  /Users/compandreimd/java-lesson
+  /Users/compandreimd/Library/Application Support/JetBrains/IntelliJIdea2022.1/plugins/robotframework-intellij/lib
+  /Users/compandreimd/Library/Application Support/JetBrains/IntelliJIdea2022.1/plugins/robotframework-intellij/lib/robotframework_ls/vendored
+  /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python39.zip
+  /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9
+  /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/lib-dynload
+  /Users/compandreimd/Library/Python/3.9/lib/python/site-packages
+  /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/site-packages
+  /Library/Python/3.9/site-packages</msg>
+</errors>
+</robot>

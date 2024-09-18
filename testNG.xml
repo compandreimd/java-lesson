@@ -1,30 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Testing Google Apps">
-    <test name="Current">
+    <test name="Main">
         <classes>
-            <class name="tests.web.elements.TextBoxTests"/>
-            <class name="tests.web.elements.CheckBoxTests"/>
+            <class name="tests.web.MainPageTest"/>
         </classes>
     </test>
-    <test name="Demo">
-<!--        <classes>-->
-<!--            <class name="tests.web.elements.TextBoxTests"/>-->
-<!--            <class name="tests.web.FormsTest"/>-->
-<!--        </classes>-->
-<!--        &lt;!&ndash; <parameter name="Demo" value="1"/> &ndash;&gt;-->
-<!--        <classes>-->
-<!--            <class name="tests.web.elements.TextBoxTests"/>-->
-<!--            <class name="tests.web.DemoTest2"/>-->
-<!--        </classes>-->
-<!--    </test> &lt;!&ndash; Test &ndash;&gt;-->
-<!--    <test name="Demo2">-->
-<!--        &lt;!&ndash; <parameter name="Demo" value="1"/> &ndash;&gt;-->
-<!--        <classes>-->
-<!--            <class name="tests.web.DemoTest2"/>-->
-<!--            <class name="tests.web.elements.TextBoxTests"/>-->
-<!--            <class name="tests.web.DemoTest2"/>-->
-<!--            <class name="tests.web.elements.TextBoxTests"/>-->
-<!--        </classes>-->
+    <test name="Elements">
+        <classes>
+            <class name="tests.web.elements.ElementsPageTest"/>
+            <class name="tests.web.elements.TextBoxPageTest"/>
+            <class name="tests.web.elements.CheckPageTest"/>
+        </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

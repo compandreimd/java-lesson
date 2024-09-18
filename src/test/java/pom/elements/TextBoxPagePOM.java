@@ -1,17 +1,14 @@
 package pom.elements;
 
-import org.openqa.selenium.WebDriver;
+import core.web.AMenuPom;
+import core.web.BaseClass;
+import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import pom.APom;
 
-
-public class TextBoxPagePOM extends APom {
-
-    public TextBoxPagePOM(WebDriver driver) {
-        super(driver);
+public class TextBoxPagePOM extends AMenuPom {
+    public TextBoxPagePOM(@NotNull BaseClass baseClass) {
+        super(baseClass);
     }
 
     @FindBy(xpath = "//input[@id='userName']")
@@ -34,6 +31,7 @@ public class TextBoxPagePOM extends APom {
     public WebElement checkPermanentAddress;
 
     public void clickSumit(){
+        goToElement(submit);
         submit.click();
     }
 
