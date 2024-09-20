@@ -3,9 +3,7 @@ package core.web;
 import data.enums.EItem;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebElement;
-import pom.elements.CheckPagePOM;
-import pom.elements.RadioPagePOM;
-import pom.elements.TextBoxPagePOM;
+import pom.elements.*;
 
 public class AMenuPom  extends APom{
     public AMenuPom(@NotNull BaseClass baseClass) {
@@ -22,6 +20,12 @@ public class AMenuPom  extends APom{
             case TextBox -> new TextBoxPagePOM(base);
             case CheckBox -> new CheckPagePOM(base);
             case RadioButton -> new RadioPagePOM(base);
+            case WebTables -> new WebTablesPagePOM(base);
+            case Buttons -> new ButtonPagePOM(base);
+            case Links -> new LinksPagePOM(base);
+            case BrokenLinks ->  new BrokenPagePOM(base);
+            case UploadDownload -> new UploadDownloadPagePOM(base);
+            case Dynamic -> new DynamicPagePOM(base);
             default -> null;
         };
     }

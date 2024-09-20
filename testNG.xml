@@ -11,6 +11,7 @@
             <class name="tests.web.elements.ElementsPageTest"/>
             <class name="tests.web.elements.TextBoxPageTest"/>
             <class name="tests.web.elements.CheckPageTest"/>
+            <class name="tests.web.elements.WebTablesPageTest"/>
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

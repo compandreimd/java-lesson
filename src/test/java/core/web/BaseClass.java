@@ -12,7 +12,14 @@ import pom.MainPagePOM;
 import utils.ReadConfig;
 
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 
 public class BaseClass{
@@ -31,8 +38,22 @@ public class BaseClass{
         return softAssert;
     }
 
+    public static String TempDir;
     static {
         ChromeOptions options = new ChromeOptions();
+        try {
+            TempDir = Files.createTempDirectory("tmpDirPrefix").toFile().getAbsolutePath();
+            System.out.println("Create temp dir:"+TempDir);
+            options.setEnableDownloads(true);
+            HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+            chromePrefs.put("profile.default_content_settings.popups", 0);
+            chromePrefs.put("download.default_directory", TempDir);
+            options.setExperimentalOption("prefs", chromePrefs);
+           // options.addArguments("--test-type");
+            options.addArguments("start-maximized", "disable-popup-blocking");
+        } catch (IOException e) {
+
+        }
         options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
@@ -54,6 +75,20 @@ public class BaseClass{
 
     @AfterSuite(alwaysRun = true)
     public void quit(){
+        File file = new File(TempDir);
+        file.deleteOnExit();
         driver.quit();
+    }
+
+    public String getPageHash(){
+        return driver.getWindowHandle();
+    }
+
+    public Set<String> getPagesHash(){
+        return driver.getWindowHandles();
+    }
+
+    public Set<String> getNewPagesHash(Set<String> old){
+        return getPagesHash().stream().filter(nh -> !old.contains(nh)).collect(Collectors.toSet());
     }
 }
