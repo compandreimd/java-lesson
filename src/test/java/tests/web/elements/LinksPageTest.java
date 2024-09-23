@@ -9,6 +9,7 @@ import pom.elements.ElementsPagePOM;
 import pom.elements.LinksPagePOM;
 import utils.ReadConfig;
 
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Stream;
@@ -64,14 +65,20 @@ public class LinksPageTest extends BaseClass {
         driver.close();
         driver.switchTo().window(mainPage);
         pom.click("created");
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(600));
         softAssert.assertEquals(pom.getLinkResponse(), pom.getResponseDefault("created"));
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(600));
         pom.click("moved");
         softAssert.assertEquals(pom.getLinkResponse(), pom.getResponseDefault("moved"));
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(600));
         pom.click("unauthorized");
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(600));
         softAssert.assertEquals(pom.getLinkResponse(), pom.getResponseDefault("unauthorized"));
         pom.click("forbidden");
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(600));
         softAssert.assertEquals(pom.getLinkResponse(), pom.getResponseDefault("forbidden"));
         pom.click("invalid-url");
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(600));
         softAssert.assertEquals(pom.getLinkResponse(), pom.getResponseDefault("invalid-url"));
 
         softAssert.assertAll();

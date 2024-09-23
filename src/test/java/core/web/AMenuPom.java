@@ -3,6 +3,7 @@ package core.web;
 import data.enums.EItem;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebElement;
+import pom.alerts.BrowserPagePOM;
 import pom.elements.*;
 import pom.forms.PracticeFormPagePOM;
 
@@ -28,6 +29,7 @@ public class AMenuPom  extends APom{
             case UploadDownload -> new UploadDownloadPagePOM(base);
             case Dynamic -> new DynamicPagePOM(base);
             case PracticeForm -> new PracticeFormPagePOM(base);
+            case Browser -> new BrowserPagePOM(base);
             default -> null;
         };
     }

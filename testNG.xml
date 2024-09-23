@@ -8,10 +8,23 @@
     </test>
     <test name="Elements">
         <classes>
-            <class name="tests.web.elements.ElementsPageTest"/>
-            <class name="tests.web.elements.TextBoxPageTest"/>
+            <class name="tests.web.MainPageTest"/>
+            <class name="tests.web.elements.BrokenPageTest"/>
+            <class name="tests.web.elements.ButtonPageTest"/>
             <class name="tests.web.elements.CheckPageTest"/>
+            <class name="tests.web.elements.DynamicPageTest"/>
+            <class name="tests.web.elements.ElementsPageTest"/>
+            <class name="tests.web.elements.LinksPageTest"/>
+            <class name="tests.web.elements.RadioPageTest"/>
+            <class name="tests.web.elements.TextBoxPageTest"/>
+            <class name="tests.web.elements.UploadDownloadPageTest"/>
             <class name="tests.web.elements.WebTablesPageTest"/>
         </classes>
     </test> <!-- Test -->
+    <test name="Forms">
+        <classes>
+            <class name="tests.web.forms.FormPageTest"/>
+            <class name="tests.web.forms.PracticeFormPageTest"/>
+        </classes>
+    </test>
 </suite> <!-- Suite -->
