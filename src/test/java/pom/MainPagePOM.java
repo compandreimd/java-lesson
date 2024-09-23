@@ -7,6 +7,7 @@ import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pom.elements.ElementsPagePOM;
+import pom.forms.FormPagePOM;
 import utils.ReadConfig;
 
 public class MainPagePOM  extends APom {
@@ -37,6 +38,7 @@ public class MainPagePOM  extends APom {
         card.click();
         return switch (item){
             case Elements -> new ElementsPagePOM(base);
+            case Forms -> new FormPagePOM(base);
             default -> null;
         };
     }

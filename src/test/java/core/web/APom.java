@@ -23,7 +23,7 @@ public class APom {
         PageFactory.initElements(driver, this);
 
     }
-    protected void goToElement(WebElement element){
+    public void goToElement(WebElement element){
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)", element);
     }
     protected WebElement getElement(By locator){

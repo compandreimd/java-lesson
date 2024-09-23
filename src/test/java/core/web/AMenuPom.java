@@ -4,6 +4,7 @@ import data.enums.EItem;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebElement;
 import pom.elements.*;
+import pom.forms.PracticeFormPagePOM;
 
 public class AMenuPom  extends APom{
     public AMenuPom(@NotNull BaseClass baseClass) {
@@ -26,6 +27,7 @@ public class AMenuPom  extends APom{
             case BrokenLinks ->  new BrokenPagePOM(base);
             case UploadDownload -> new UploadDownloadPagePOM(base);
             case Dynamic -> new DynamicPagePOM(base);
+            case PracticeForm -> new PracticeFormPagePOM(base);
             default -> null;
         };
     }
